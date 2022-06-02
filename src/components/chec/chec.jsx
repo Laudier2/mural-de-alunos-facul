@@ -32,16 +32,6 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
-/*const chenger = (e) => {
-  localStorage.setItem('name', JSON.stringify(e.name))
-  localStorage.setItem('price', JSON.stringify(e.price.formatted_with_symbol))
-  localStorage.setItem('imagem', JSON.stringify(e.assets[0].url))
-  localStorage.setItem('imagem1', JSON.stringify(e.assets[1].url))
-  localStorage.setItem('imagem2', JSON.stringify(e.assets[2].url))
-  localStorage.setItem('imagem3', JSON.stringify(e.assets[3].url))
-  localStorage.setItem('descricao', JSON.stringify(e.description))
-}*/
-
 const Consumo = () => {
 
   const [busca, setBusca] = useState('')
@@ -124,7 +114,7 @@ const Consumo = () => {
         />
       </form>
       <div classNameName="mt-5 conatiner">
-        <div className="container col-sm-9 mr">
+        <div className="container col-sm-11 mr">
 
           {chec.map(e => (
 

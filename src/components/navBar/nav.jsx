@@ -3,6 +3,8 @@ import "./nav.css"
 
 export default function Nav() {
 
+    const email = JSON.parse(localStorage.getItem("user"))
+
     return (
         <div>
             <nav id="navbar-exemplo2" className="navbar navbar-light bg-light mt-1">
@@ -14,10 +16,10 @@ export default function Nav() {
                         <a className="nav-link" href="/sobre">Sobre</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/form">Cadastre-se</a>
+                        {!email ? <a className="nav-link" href="/form">Cadastre-se</a> : ""}
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/login">Login</a>
+                        {!email ? <a className="nav-link" href="/login">Login</a> : ""}
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href='/conta'>

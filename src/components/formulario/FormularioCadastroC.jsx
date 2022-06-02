@@ -59,7 +59,7 @@ export default function FormularioCadastro(props) {
      * Agora estamos criando uma variável method com uma condição.
      * Se a requisição for put, vai ser executada put, se não execute post
      */
-    const method = props.idAtual ? 'put' : 'post';
+    const method = props.idAtual ? 'post' : 'post';
     const url = props.idAtual
       ? `${URL}${props.idAtual}`
       : `${URL}`;
@@ -77,7 +77,7 @@ export default function FormularioCadastro(props) {
 
         }
         //Correção de eero
-        history("/conta")
+        history("/")
         setTimeout(() => {
           window.location.reload()
         }, 6250)
@@ -85,7 +85,7 @@ export default function FormularioCadastro(props) {
       .catch((err) => {
         toast.error('Os campos sao obrigatorio ou usuario email ja cadastrado, tente novamente');
         //Correção
-        history('/form');
+        history('/');
         setTimeout(() => {
           window.location.reload()
         }, 6250)
@@ -95,7 +95,7 @@ export default function FormularioCadastro(props) {
 
   return (
     <>
-      <h2 className="titolo mx-auto mb-5">Aqui você cria um novo usuário</h2>
+      <h2 className="titolo mx-auto mb-5">Crie sua conta aqui</h2>
       <form onSubmit={onSubmit}>
         <div className="form-group input-group">
           <div className="input-grou-prepend align-self-center">

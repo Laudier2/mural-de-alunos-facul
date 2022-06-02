@@ -1,5 +1,5 @@
 .box1{
-    width: 162px;
+    width: 200px;
     height: 300px;
     margin: 2px 5px;
     transition: 1s;
@@ -25,6 +25,7 @@
     display: inline-block;
     margin-top: 5px;
     margin-right: 1%;
+    width: 200px;
   }
 
   .H5{
@@ -34,8 +35,8 @@
 
   @media screen and (max-width: 780px) {
     .box1{
-      width: 155px;
-      height: 293px;
+      width: 115px;
+      height: 263px;
       margin-left: 0px;
       text-align: center;
     }
@@ -67,7 +68,7 @@
 }
 
 .imgUser {
-  width: 5%;
+  width: 10%;
   position: absolute;
   margin-top: -4%;
   margin-left: 110%;
@@ -89,8 +90,8 @@
 .nameUser {
   color: white;
   position: absolute;
-  margin-top: 1%;
-  margin-left: 110.5%;
+  margin-top: -8%;
+  margin-left: 112.5%;
   border-radius: 100px;
 }
 

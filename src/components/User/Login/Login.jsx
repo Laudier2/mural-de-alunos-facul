@@ -19,12 +19,13 @@ const UserLogin = () => {
 
     if (password && email) {
       //console.log("submit", { email, password })
+      //const email2 = JSON.parse(localStorage.getItem("user"))
 
       login(email, password)
+
       setTimeout(() => {
-        navigate("/")
-      }, 6280)
-      toast.error("Usuario ou senha invalida tente novamente")
+        navigate('/conta')  //window.location.reload()
+      }, 3280)
     }
 
   }

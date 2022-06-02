@@ -63,7 +63,7 @@ export default function Cadastro() {
           erro
         );
         setTimeout(() => {
-          navigate('/')  //window.location.reload()
+          navigate('/', window.location.reload())  //window.location.reload()
         }, 6280)
       });
   };

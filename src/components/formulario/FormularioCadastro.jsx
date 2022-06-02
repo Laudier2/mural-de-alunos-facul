@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import api from '../../api/api';
 import { toast } from 'react-toastify';
-import axios from 'axios';
 
 /**
  * Essa variável é quem determina os valores iniciais dos input citado no values do useState
@@ -37,8 +37,8 @@ export default function FormularioCadastro(props) {
    */
   useEffect(() => {
     if (props.idAtual) {
-      axios
-        .get(`${URL}/admin/${props.idAtual}`)
+      api
+        .get(`/admin/${props.idAtual}`)
         .then((res) => {
           setValues(res.data);
         });
@@ -59,7 +59,7 @@ export default function FormularioCadastro(props) {
      * Agora estamos criando uma variável method com uma condição.
      * Se a requisição for put, vai ser executada put, se não execute post
      */
-    const method = props.idAtual ? 'put' : 'post';
+    const method = props.idAtual ? 'put' : 'put';
     const url = props.idAtual
       ? `${URL}${props.idAtual}`
       : `${URL}`;
@@ -68,7 +68,7 @@ export default function FormularioCadastro(props) {
      * E o que for resolvido na condição de cima vai ser executado aqui.
      * Seja para criar um produto ou para atualizar
      */
-    axios[method](url, values)
+    api[method](url, values)
       .then(() => {
         if (props.idAtual === '') {
           toast.success('Usuario Cadastrado com sucesso');
@@ -178,7 +178,7 @@ export default function FormularioCadastro(props) {
         </div>
         <input
           type="submit"
-          value={props.idAtual === '' ? 'Salvar' : 'Atualizar'}
+          value={'Atualizar'}
           className="btn btn-primary btn-block mb-5"
         />
       </form>

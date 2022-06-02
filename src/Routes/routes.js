@@ -22,7 +22,9 @@ const AdminRotas = () => {
         }
 
         if (!auth) {
-            return (<Navigate to="/login" />)
+            return (
+                <Navigate to="/login" />
+            )
         }
 
         return children
