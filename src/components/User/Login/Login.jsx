@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import StoreContext from '../../../Context/SatateDate'
 
 import './Login.css';
-import { toast } from 'react-toastify';
+//import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom'
 
 const UserLogin = () => {
