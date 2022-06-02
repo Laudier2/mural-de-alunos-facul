@@ -1,0 +1,15 @@
+.mrg2{
+    margin-left: 60%;
+}
+
+@media screen and (max-width: 780px) {
+    .mrg2{
+        margin-left: 60%;
+    }
+}
+
+@media screen and (max-width: 1580px) {
+    .mrg2{
+        margin-left: 60%;
+    }
+}
