@@ -103,11 +103,6 @@ const Consumo = () => {
         <div>
           <img src={img} alt="img" className="imgUser" />
           <strong><p className="nameUser">{name} </p></strong>
-          <div className="caseHome">
-            <a href="/conta" rel="noopener noreferrer">
-              <i class="fa-solid fa-gear text-white"></i>
-            </a>
-          </div>
         </div>
       )
     } else {

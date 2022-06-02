@@ -2,6 +2,7 @@ import React from 'react'
 import "./nav.css"
 
 export default function Nav() {
+
     return (
         <div>
             <nav id="navbar-exemplo2" className="navbar navbar-light bg-light mt-1">
@@ -17,6 +18,11 @@ export default function Nav() {
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="/login">Login</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" href='/conta'>
+                            <i class="fa-solid fa-gear text-primary"></i>
+                        </a>
                     </li>
                 </ul>
             </nav>

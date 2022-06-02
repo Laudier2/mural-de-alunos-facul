@@ -24,22 +24,14 @@ export default function Cadastro() {
    */
   const [idAtual, setIdAtual] = useState('');
   const [item, setItem] = useState('');
-  //const [imagem, setImagem] = useState([]);
-  //const [name, setName] = useState([]);
   const [email, setEmail] = useState([]);
 
   const navigate = useNavigate()
 
   useEffect(() => {
     (async () => {
-      //const imagem2 = await localStorage.getItem("imagem")
-      //const name2 = await localStorage.getItem("name")
       const email2 = await localStorage.getItem("user")
-      //const nameN = await JSON.parse(name2)
-      //const imgN = await JSON.parse(imagem2)
       const emaiL = await JSON.parse(email2)
-      //setImagem(imgN)
-      //setName(nameN)
       setEmail(emaiL)
 
     })()
@@ -56,7 +48,7 @@ export default function Cadastro() {
    * que esta vindo via evento do onClick
    */
   const Apagausuario = (id) => {
-    axios //Esse process.env.REACT_APP_API_URL é uma variave de ambiente que contem a url da api
+    axios
       .delete(URL + id)
       .then((res) => {
         toast.success('O usuário foi deletado com sucesso');
