@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { red } from '@material-ui/core/colors';
+import Loading from '../loading/Loading';
 import axios from 'axios'
 import './chec.css'
 
@@ -36,6 +37,7 @@ const Consumo = () => {
 
   const [busca, setBusca] = useState('')
   const [chec, setChec] = useState([])
+  const [load, setLoad] = useState(false)
 
   useEffect(() => {
     (async () => {
@@ -43,6 +45,7 @@ const Consumo = () => {
       const res = await req.data
 
       setChec(res)
+      setLoad(true)
     })()
   }, [])
 
@@ -132,6 +135,7 @@ const Consumo = () => {
             </div>
 
           ))}
+          {!load && <Loading />}
         </div>
         <div className="mt-5"></div>
       </div>

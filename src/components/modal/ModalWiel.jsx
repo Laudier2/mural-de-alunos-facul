@@ -25,11 +25,6 @@ const Modal = ({ dadosItem }) => {
             {' '}
             <strong className="text-primary">Phone:</strong> {dadosItem.phone}
           </li>
-          <li>
-            {' '}
-            <strong className="text-primary">Password:</strong> {dadosItem.password}
-          </li>
-
         </ul>
       </div>
     </>

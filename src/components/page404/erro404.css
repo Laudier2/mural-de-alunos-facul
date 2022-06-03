@@ -1,0 +1,20 @@
+.erro404{
+    background-image: url("https://img.myloview.com.br/fotomurais/design-template-for-web-page-with-404-error-can-use-for-web-banner-infographics-flat-vector-illustration-isolated-on-colored-background-700-216451148.jpg");
+    width: 100%;
+    height: 90vh;
+}
+
+.intro {
+    display: black;
+    width: 100%;
+    height: 76vh;
+    padding: 0;
+    text-align: center;
+    color: white;
+    background: url("https://thumbs.dreamstime.com/b/error-god-not-found-background-d-three-white-toy-clouds-cords-thread-rope-black-number-opaque-mat-heaven-51099088.jpg") no-repeat bottom center scroll;
+    background-color: black;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    background-size: contain;
+    -o-background-size: contain;
+}

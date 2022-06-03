@@ -95,7 +95,6 @@ export default function FormularioCadastro(props) {
 
   return (
     <>
-      <h2 className="titolo mx-auto">Crie ou Atualize user</h2>
       <form onSubmit={onSubmit}>
         <div className="form-group input-group">
           <div className="input-grou-prepend align-self-center">

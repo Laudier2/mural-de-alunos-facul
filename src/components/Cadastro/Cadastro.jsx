@@ -77,7 +77,7 @@ export default function Cadastro() {
         <button className="btn btn-danger mt-5 ml-3 btn-p" onClick={logout}>Logout</button>
       </section>
       <div className="jumbotron jumbotron-fuid bg-img mt-5"></div>
-
+      <h2 className="titolo mx-auto">Clica no lapis que seus dados para atualiza aparecera no formulario abaixo para editar.</h2>
       <div className="row">
         <div className="col-md-5">
           <FormularioCadastro {...{ idAtual, users }} />
