@@ -40,13 +40,15 @@ const Consumo = () => {
   const [load, setLoad] = useState(false)
 
   useEffect(() => {
-    (async () => {
-      const req = await axios.get('https://my-app-ts1.herokuapp.com/')
-      const res = await req.data
+    setTimeout(() => {
+      (async () => {
+        const req = await axios.get('https://my-app-ts1.herokuapp.com/')
+        const res = await req.data
 
-      setChec(res)
-      setLoad(true)
-    })()
+        setChec(res)
+        setLoad(true)
+      })()
+    }, 4000)
   }, [])
 
   useEffect(() => {
