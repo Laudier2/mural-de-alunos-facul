@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import FormularioCadastro from '../formulario/FormularioCadastro';
+import FormularioCadastro from '../formulario/FormUpdate';
 import './cadastro.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -69,7 +69,7 @@ export default function Cadastro() {
   };
 
   return (
-    <div>
+    <div className="container">
       <section>
         <h1 className="h5 col-md-12 titolo text-white">
           Sistema de Cadastro e Gerenciamento de Usuários
@@ -82,10 +82,10 @@ export default function Cadastro() {
         <div className="col-md-5">
           <FormularioCadastro {...{ idAtual, users }} />
         </div>
-        <div className="col-md-7 ">
+        <div className="col-md-7 container ">
 
           <table class="table">
-            <thead>
+            <thead className="container">
               <tr className="text-white">
                 <th scope="col">Usuario</th>
                 <th scope="col">E-mail</th>
@@ -97,7 +97,7 @@ export default function Cadastro() {
             </thead>
 
             {mail.map((r) => (
-              <tbody key={r.id}>
+              <tbody key={r.id} className="container">
                 <tr className="btn-outline-secondary text-white">
                   <th scope="row">
                     <button

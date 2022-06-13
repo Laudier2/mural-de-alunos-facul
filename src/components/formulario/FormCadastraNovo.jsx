@@ -94,7 +94,7 @@ export default function FormularioCadastro(props) {
   }
 
   return (
-    <>
+    <div className="conatiner col-md-10">
       <h2 className="titolo mx-auto mb-5">Crie sua conta aqui</h2>
       <form onSubmit={onSubmit}>
         <div className="form-group input-group">
@@ -182,6 +182,6 @@ export default function FormularioCadastro(props) {
           className="btn btn-primary btn-block mb-5"
         />
       </form>
-    </>
+    </div>
   );
 }

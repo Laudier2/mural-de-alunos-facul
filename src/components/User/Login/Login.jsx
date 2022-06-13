@@ -31,7 +31,7 @@ const UserLogin = () => {
   }
 
   return (
-    <div className="user-login">
+    <div className="user-login conatiner col-md-10">
       {/*<p className="text-light">{String(auth)}</p>*/}
       <h1 className="user-login__title">Acessar o Sistema</h1>
       <form autoComplete="nope" onSubmit={handleSubmit}>

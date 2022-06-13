@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { red } from '@material-ui/core/colors';
 import Loading from '../loading/Loading';
 import axios from 'axios'
-import './chec.css'
+import './home.css'
 
 const useStyles = makeStyles(() => ({
   icones: {
@@ -48,7 +48,7 @@ const Consumo = () => {
         setChec(res)
         setLoad(true)
       })()
-    }, 4000)
+    }, 3000)
   }, [])
 
   useEffect(() => {

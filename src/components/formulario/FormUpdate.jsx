@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDropzone } from 'react-dropzone'
+import { FiUpload } from 'react-icons/fi'
 import api from '../../api/api';
 import { toast } from 'react-toastify';
 
@@ -16,6 +18,7 @@ const camposIniciasDeValores = {
 
 export default function FormularioCadastro(props) {
   const [values, setValues] = useState(camposIniciasDeValores);
+  const [selectedFile, setSelectedFile] = useState('')
   const history = useNavigate();
 
   const URL = "https://my-app-ts1.herokuapp.com/"  //"http://15.228.82.63/"
@@ -93,23 +96,40 @@ export default function FormularioCadastro(props) {
       });
   }
 
+  const onDrop = useCallback(acceptedFiles => {
+    const file = acceptedFiles[0]
+    const fileUrl = URL.createObjectURL(file)
+
+    setSelectedFile(fileUrl)
+  }, [])
+  const { getRootProps, getInputProps } = useDropzone({ onDrop })
+
   return (
     <>
       <form onSubmit={onSubmit}>
-        <div className="form-group input-group">
-          <div className="input-grou-prepend align-self-center">
-            <div className="input-group-text">
-              <i className="fas fa-id-badge p-1 mt-2 text-info" />
-            </div>
+        <div className="form-group input-group bg-light">
+          <div {...getRootProps()} className="text-dark m-auto">
+            <input {...getInputProps()} type="text"
+              className="form-control"
+              placeholder="Seu Nome"
+              name="name"
+              value={values.name}
+              onChange={onChange}
+            />
+
+            {selectedFile
+              ? <img
+                src={selectedFile}
+                alt="img"
+                className="img"
+              />
+              : <p className="m-auto">
+                <FiUpload style={{ width: 160, color: 'green' }} />
+                <br />
+                Insira uma Imagem aqui!
+              </p>
+            }
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Seu Nome"
-            name="name"
-            value={values.name}
-            onChange={onChange}
-          />
         </div>
         <div className="form-group input-group">
           <div className="input-grou-prepend align-self-center">

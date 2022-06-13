@@ -35,9 +35,9 @@
 
   @media screen and (max-width: 780px) {
     .box1{
-      width: 115px;
+      width: 330px;
       height: 263px;
-      margin-left: 0px;
+      margin-left: 10px;
       text-align: center;
     }
 
