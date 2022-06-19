@@ -6,6 +6,7 @@ import axios from 'axios'
 import './home.css'
 
 const useStyles = makeStyles(() => ({
+
   icones: {
     width: 16,
   },
@@ -34,6 +35,7 @@ const useStyles = makeStyles(() => ({
 }))
 
 const Consumo = () => {
+  console.clear()
 
   const [busca, setBusca] = useState('')
   const [chec, setChec] = useState([])
@@ -109,25 +111,25 @@ const Consumo = () => {
     <div>
       <h1 className="titolo2 mb-4 mt-2">Mural de alunos</h1>
       <Usuario />
-      <form className="form-inline my-2 my-lg-0 container">
+      <form className="form-inline mb-3">
         <input
-          className="form-control mr-sm-2 col-12"
+          className="form-control col-9"
           onChange={handleChanher}
           type="search"
           placeholder="Pesquise um nome aqui, é so digita"
           aria-label="Search"
         />
       </form>
-      <div classNameName="mt-5 conatiner">
-        <div className="container col-sm-11 mr">
+      <div classNameName="mt-5">
+        <div className="col-sm-11 mr">
 
           {chec.map(e => (
 
-            <div key={e.id} className="div-lado ml-2">
+            <div key={e.id} className="div-lado ml-2 m-auto">
               <div >
-                <div className="box1 mt-4">
+                <div className="box1 mt-4 m-auto">
 
-                  <div className="box1 card">
+                  <div className="box1 card m-auto">
                     <h5 className={classes.title}>{e.name}</h5>
                     <img src={e.imagem} alt="imagem" className={classes.img} />
 

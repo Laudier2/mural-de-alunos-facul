@@ -2,11 +2,12 @@ import React from 'react'
 import "./nav.css"
 
 export default function Nav() {
+    console.clear()
 
     const email = JSON.parse(localStorage.getItem("user"))
 
     return (
-        <div className="container">
+        <div>
             <nav id="navbar-exemplo2" className="navbar navbar-light bg-light mt-1">
                 <a className="navbar-brand" href="/">
                     <i class="fa-solid fa-house"></i>

@@ -17,7 +17,8 @@
     "react-icons": "^4.4.0",
     "react-router-dom": "6.3.0",
     "react-scripts": "4.0.3",
-    "semantic-ui-react": "^2.0.4"
+    "semantic-ui-react": "^2.0.4",
+    "styled-components": "^5.3.5"
   },
   "scripts": {
     "start": "react-dotenv && react-scripts start",

@@ -35,9 +35,8 @@
 
   @media screen and (max-width: 780px) {
     .box1{
-      width: 330px;
+      width: 300px;
       height: 263px;
-      margin-left: 10px;
       text-align: center;
     }
 
@@ -50,28 +49,21 @@
       height: 100px;
       margin: auto;
     }
-    .imgUser {
-      width: 5%;
-      position: absolute;
-      margin-top: -4%;
-      margin-left: 110%;
-      border-radius: 100px;
+
+    form{
+      margin-left: 16px;
     }
 
     .nameUser {
-      color: white;
-      position: absolute;
-      margin-top: 1%;
-      margin-left: 10.5%;
-      border-radius: 100px;
+      display: none;
     }
 }
 
 .imgUser {
-  width: 10%;
+  width: 8%;
   position: absolute;
-  margin-top: -4%;
-  margin-left: 110%;
+  margin-top: -2%;
+  margin-left: 80%;
   border-radius: 100px;
 }
 
@@ -90,8 +82,8 @@
 .nameUser {
   color: white;
   position: absolute;
-  margin-top: -8%;
-  margin-left: 112.5%;
+  margin-top: 3%;
+  margin-left: 81.2%;
   border-radius: 100px;
 }
 

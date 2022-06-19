@@ -15,6 +15,8 @@ const camposIniciasDeValores = {
 };
 
 export default function FormularioCadastro(props) {
+  console.clear()
+
   const [values, setValues] = useState(camposIniciasDeValores);
   const history = useNavigate();
 

@@ -8,9 +8,8 @@ import { toast } from 'react-toastify';
 import AppContext from '../../Context/SatateDate'
 import { useNavigate } from 'react-router-dom'
 
-console.clear()
-
 export default function Cadastro() {
+  console.clear()
 
   const { users, logout } = useContext(AppContext)
 
@@ -41,7 +40,7 @@ export default function Cadastro() {
     return reqEmail.email.includes(email)
   })
 
-  console.log(mail)
+  //console.log(mail)
 
   /**
    * Essa função é responsável por apaga um usuario via id,
@@ -71,21 +70,18 @@ export default function Cadastro() {
   return (
     <div className="container">
       <section>
-        <h1 className="h5 col-md-12 titolo text-white">
-          Sistema de Cadastro e Gerenciamento de Usuários
-        </h1>
-        <button className="btn btn-danger mt-5 ml-3 btn-p" onClick={logout}>Logout</button>
+        <button className="btn btn-danger mt-3 ml-3 btn-p" onClick={logout}>Logout</button>
       </section>
       <div className="jumbotron jumbotron-fuid bg-img mt-5"></div>
-      <h2 className="titolo mx-auto">Clica no lapis que seus dados para atualiza aparecera no formulario abaixo para editar.</h2>
-      <div className="row">
+
+      <div className="row container">
         <div className="col-md-5">
           <FormularioCadastro {...{ idAtual, users }} />
         </div>
-        <div className="col-md-7 container ">
+        <div className="">
 
           <table class="table">
-            <thead className="container">
+            <thead>
               <tr className="text-white">
                 <th scope="col">Usuario</th>
                 <th scope="col">E-mail</th>
@@ -97,7 +93,7 @@ export default function Cadastro() {
             </thead>
 
             {mail.map((r) => (
-              <tbody key={r.id} className="container">
+              <tbody key={r.id} className="container2">
                 <tr className="btn-outline-secondary text-white">
                   <th scope="row">
                     <button

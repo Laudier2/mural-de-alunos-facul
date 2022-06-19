@@ -58,7 +58,7 @@ const AppProvider = ({ children }) => {
     }
 
     const logout = () => {
-        console.log('Logout')
+        //console.log('Logout')
         setUser(null)
         localStorage.removeItem('user')
         localStorage.removeItem('token')
