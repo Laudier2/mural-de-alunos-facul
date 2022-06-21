@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
+//import { useNavigate } from 'react-router-dom'
 import "./erro404.css"
 
 export default function Rrro404() {
     console.clear()
 
-    const navigate = useNavigate()
+    /*const navigate = useNavigate()
 
-    useEffect(() => {
+    /*useEffect(() => {
         setTimeout(() => {
             (() => {
                 return navigate('/')
             })()
         }, 12000)
-    }, [])
+    }, [])*/
 
     return (
 

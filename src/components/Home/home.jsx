@@ -35,7 +35,7 @@ const useStyles = makeStyles(() => ({
 }))
 
 const Consumo = () => {
-  console.clear()
+  //console.clear()
 
   const [busca, setBusca] = useState('')
   const [chec, setChec] = useState([])
