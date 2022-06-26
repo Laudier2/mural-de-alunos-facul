@@ -1,9 +1,7 @@
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css'
-import Nav from './components/navBar/nav';
+import Nav from './components/navBar/nav2';
 import AdminRotas from './Routes/routes';
-import GloboStyle from './styles/global'
-//import './style.css'
 
 function App() {
 
@@ -15,7 +13,7 @@ function App() {
         <AdminRotas />
       </div>
       <ToastContainer />
-      <GloboStyle />
+
     </div>
 
 

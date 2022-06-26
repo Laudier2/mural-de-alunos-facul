@@ -7,6 +7,7 @@ import Modal from '../modal/ModalWiel';
 import { toast } from 'react-toastify';
 import AppContext from '../../Context/SatateDate'
 import { useNavigate } from 'react-router-dom'
+import { Card } from 'react-bootstrap'
 
 export default function Cadastro() {
   console.clear()
@@ -68,109 +69,105 @@ export default function Cadastro() {
   };
 
   return (
-    <div className="container">
-      <section>
-        <button className="btn btn-danger mt-3 ml-3 btn-p" onClick={logout}>Logout</button>
-      </section>
+    <Card className="container">
       <div className="jumbotron jumbotron-fuid bg-img mt-5"></div>
 
-      <div className="row container">
-        <div className="col-md-5">
+      <Card.Body className="row container">
+        <div className="card">
           <FormularioCadastro {...{ idAtual, users }} />
         </div>
-        <div className="">
 
-          <table class="table">
-            <thead>
-              <tr className="text-white">
-                <th scope="col">Usuario</th>
-                <th scope="col">E-mail</th>
-                <th scope="col">Phone</th>
-                <th scope="col">
-                  <i className="fas fa-coins" />
-                </th>
-              </tr>
-            </thead>
+        <table className="table">
+          <thead>
+            <tr className="text-white">
+              <th scope="col">Usuario</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Phone</th>
+              <th scope="col">
+                <i className="fas fa-coins" />
+              </th>
+            </tr>
+          </thead>
 
-            {mail.map((r) => (
-              <tbody key={r.id} className="container2">
-                <tr className="btn-outline-secondary text-white">
-                  <th scope="row">
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                      onClick={() => {
-                        setItem(r);
-                      }}
-                    >
-                      <i className="fas fa-eye" />
-                    </button>
+          {mail.map((r) => (
+            <tbody key={r.id} className="container">
+              <tr className="btn-outline-secondary text-dark">
+                <th scope="row">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                    onClick={() => {
+                      setItem(r);
+                    }}
+                  >
+                    <i className="fas fa-eye" />
+                  </button>
 
-                    <div
-                      class="modal fade"
-                      id="exampleModal"
-                      tabindex="-1"
-                      aria-labelledby="exampleModalLabel"
-                      aria-hidden="true"
-                    >
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5
-                              class="modal-title titolo2"
-                              id="exampleModalLabel"
-                            >
-                              Dados do Usuário
-                            </h5>
-                            <button
-                              type="button"
-                              class="btn-close"
-                              data-bs-dismiss="modal"
-                              aria-label="Close"
-                              className="btn-outline-secondary"
-                            ></button>
-                          </div>
-                          <div class="modal-body text-dark">
-                            <Modal dadosItem={item} />
-                          </div>
-                          <div class="modal-footer">
-                            <button
-                              type="button"
-                              class="btn btn-outline-secondary btn-block "
-                              data-bs-dismiss="modal"
-                            >
-                              Fecha
-                            </button>
-                          </div>
+                  <div
+                    class="modal fade"
+                    id="exampleModal"
+                    tabindex="-1"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5
+                            class="modal-title titolo2"
+                            id="exampleModalLabel"
+                          >
+                            Dados do Usuário
+                          </h5>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                            className="btn-outline-secondary"
+                          ></button>
+                        </div>
+                        <div class="modal-body text-dark">
+                          <Modal dadosItem={item} />
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-outline-secondary btn-block "
+                            data-bs-dismiss="modal"
+                          >
+                            Fecha
+                          </button>
                         </div>
                       </div>
                     </div>
-                  </th>
-                  <td>{r.name}</td>
-                  <td>{r.email}</td>
-                  <td>{r.phone}</td>
-                  <td>
-                    <Link
-                      to="/conta"
-                      onClick={() => {
-                        setIdAtual(r._id);
-                      }}
-                      className="mr-2"
-                    >
-                      <i className="fas fa-edit mt-2 p-2 text-info btn btn-light card" />
-                    </Link>
-                    <Link to="/" onClick={() => Apagausuario(r._id)}>
-                      <i className="fas fa-trash-alt mt-2 p-2 text-danger btn btn-light card" />
-                    </Link>
-                  </td>
-                </tr>
-              </tbody>
-            ))}
-          </table>
-        </div>
-      </div>
-    </div>
+                  </div>
+                </th>
+                <td>{r.name}</td>
+                <td>{r.email}</td>
+                <td>{r.phone}</td>
+                <td>
+                  <Link
+                    to="/conta"
+                    onClick={() => {
+                      setIdAtual(r._id);
+                    }}
+                    className="mr-2"
+                  >
+                    <i className="fas fa-edit mt-2 p-2 text-info btn btn-light card" />
+                  </Link>
+                  <Link to="/" onClick={() => Apagausuario(r._id)}>
+                    <i className="fas fa-trash-alt mt-2 p-2 text-danger btn btn-light card" />
+                  </Link>
+                </td>
+              </tr>
+            </tbody>
+          ))}
+        </table>
+
+      </Card.Body>
+    </Card>
   );
 }

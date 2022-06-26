@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import StoreContext from '../../../Context/SatateDate'
+import { Card, Button, Form } from 'react-bootstrap'
 
 import './Login.css';
 //import { toast } from 'react-toastify';
@@ -32,12 +33,12 @@ const UserLogin = () => {
   }
 
   return (
-    <div className="user-login col-9">
+    <div className="user-login card p-5 mt-5 mrg">
       {/*<p className="text-light">{String(auth)}</p>*/}
       <h1 className="user-login__title">Acessece o Sistema</h1>
-      <form autoComplete="nope" onSubmit={handleSubmit}>
+      <Form autoComplete="nope" onSubmit={handleSubmit}>
         <div className="user-login__form-control">
-          <label htmlFor="email">E-mail</label>
+          <Form.Label htmlFor="email">E-mail</Form.Label>
           <input
             id="email"
             type="text"
@@ -58,17 +59,17 @@ const UserLogin = () => {
         <button
           type="submit"
           theme="contained-green"
-          className="user-login__submit-button btb btn-success p-2 shadow-lg mb-5 bg-body rounded-3"
+          className="user-login__submit-button h5 btb p-2 shadow-lg mb-5 bg-body rounded-3 cor-btn"
           rounded
         >
           Entrar
         </button>
-      </form>
-      <div className="m-auto">
-        <a href="/form" target="_blank" className="text-white ml-5">
-          Ainda não tenho conta
-        </a>
-      </div>
+      </Form>
+
+      <Card.Link href="/form" target="_blank">
+        Ainda não tenho conta
+      </Card.Link>
+
     </div>
   );
 };

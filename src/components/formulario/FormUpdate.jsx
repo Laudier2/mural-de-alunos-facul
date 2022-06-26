@@ -4,6 +4,7 @@ import { useDropzone } from 'react-dropzone'
 import { FiUpload } from 'react-icons/fi'
 import api from '../../api/api';
 import { toast } from 'react-toastify';
+import { Card, Form, Button } from 'react-bootstrap'
 
 /**
  * Essa variável é quem determina os valores iniciais dos input citado no values do useState
@@ -106,101 +107,98 @@ export default function FormularioCadastro(props) {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <div className="form-group input-group bg-light">
-          <div {...getRootProps()} className="text-dark m-auto">
-            <input {...getInputProps()} type="text"
+      <div className="p-5 mt-5">
+        <h1 className="titolo2 mb-5">Sistema de Cadastro</h1>
+        <Form onSubmit={onSubmit}>
+          <div className="form-group input-group mt-2">
+            <div className="input-grou-prepend align-self-center">
+              <div className="input-group-text">
+                <i className="fas fa-id-badge p-1 mt-2 text-info" />
+              </div>
+            </div>
+            <input
+              type="text"
               className="form-control"
               placeholder="Seu Nome"
               name="name"
               value={values.name}
               onChange={onChange}
             />
+          </div>
+          <div className="form-group input-group mt-2">
+            <div className="input-grou-prepend align-self-center">
+              <div className="input-group-text">
+                <i class="fa-solid fa-image  p-1 mt-2 text-info"></i>
+              </div>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Sua Imagem"
+              name="imagem"
+              value={values.imagem}
+              onChange={onChange}
+            />
+          </div>
+          <div className="form-group input-group mt-2">
+            <div className="input-grou-prepend align-self-center">
+              <div className="input-group-text">
+                <i className="fas fa-envelope  p-1 mt-2 text-info" />
+              </div>
+            </div>
+            <input
+              type="email"
+              className="form-control"
+              placeholder="Senha"
+              name="email"
+              value={values.email}
+              onChange={onChange}
+            />
+          </div>
+          <div className="form-group input-group mt-2">
+            <div className="input-grou-prepend align-self-center">
+              <div className="input-group-text">
+                <i class="fa-solid fa-key p-1 mt-2 text-info"></i>
+              </div>
+            </div>
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Password"
+              min="0"
+              name="password"
+              value={values.password}
+              onChange={onChange}
+            />
 
-            {selectedFile
-              ? <img
-                src={selectedFile}
-                alt="img"
-                className="img"
-              />
-              : <p className="m-auto">
-                <FiUpload style={{ width: 160, color: 'green' }} />
-                <br />
-                Insira uma Imagem aqui!
-              </p>
-            }
           </div>
-        </div>
-        <div className="form-group input-group">
-          <div className="input-grou-prepend align-self-center">
-            <div className="input-group-text">
-              <i class="fa-solid fa-image  p-1 mt-2 text-info"></i>
+          <div className="form-group input-group mt-2">
+            <div className="input-grou-prepend align-self-center">
+              <div className="input-group-text">
+                <i className="fas fa-phone-alt  p-1 mt-2 text-info" />
+              </div>
             </div>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Sua Imagem"
-            name="imagem"
-            value={values.imagem}
-            onChange={onChange}
-          />
-        </div>
-        <div className="form-group input-group">
-          <div className="input-grou-prepend align-self-center">
-            <div className="input-group-text">
-              <i className="fas fa-envelope  p-1 mt-2 text-info" />
-            </div>
-          </div>
-          <input
-            type="email"
-            className="form-control"
-            placeholder="Senha"
-            name="email"
-            value={values.email}
-            onChange={onChange}
-          />
-        </div>
-        <div className="form-group input-group">
-          <div className="input-grou-prepend align-self-center">
-            <div className="input-group-text">
-              <i class="fa-solid fa-key p-1 mt-2 text-info"></i>
-            </div>
-          </div>
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Password"
-            min="0"
-            name="password"
-            value={values.password}
-            onChange={onChange}
-          />
+            <input
+              type="phone"
+              className="form-control"
+              placeholder="Telefone"
+              min="0"
+              name="phone"
+              value={values.phone}
+              onChange={onChange}
+            />
 
-        </div>
-        <div className="form-group input-group">
-          <div className="input-grou-prepend align-self-center">
-            <div className="input-group-text">
-              <i className="fas fa-phone-alt  p-1 mt-2 text-info" />
-            </div>
           </div>
-          <input
-            type="phone"
-            className="form-control"
-            placeholder="Telefone"
-            min="0"
-            name="phone"
-            value={values.phone}
-            onChange={onChange}
-          />
-
-        </div>
-        <input
-          type="submit"
-          value={'Atualizar'}
-          className="btn btn-primary btn-block mb-5"
-        />
-      </form>
+          <button
+            type="submit"
+            theme="contained-green"
+            className="user-login__submit-button h5 btb p-2 mt-3 shadow-lg mb-5 bg-body rounded-3 cor-btn"
+            rounded
+          >
+            Atualiza
+          </button>
+        </Form>
+      </div>
     </>
   );
 }

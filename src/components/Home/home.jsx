@@ -4,6 +4,7 @@ import { red } from '@material-ui/core/colors';
 import Loading from '../loading/Loading';
 import axios from 'axios'
 import './home.css'
+import { Card, NavDropdown } from 'react-bootstrap';
 
 const useStyles = makeStyles(() => ({
 
@@ -16,6 +17,7 @@ const useStyles = makeStyles(() => ({
   title: {
     fontWeight: 'bold',
     fontSize: 20,
+    textAlign: 'auto',
   },
   title_price: {
     fontWeight: 'bold',
@@ -50,7 +52,7 @@ const Consumo = () => {
         setChec(res)
         setLoad(true)
       })()
-    }, 3000)
+    }, 2000)
   }, [])
 
   useEffect(() => {
@@ -107,11 +109,33 @@ const Consumo = () => {
     }
   }
 
+  const Sair = () => {
+    localStorage.clear()
+  }
+
+  const email = JSON.parse(localStorage.getItem("user"))
+
   return (
     <div>
       <h1 className="titolo2 mb-4 mt-2">Mural de alunos</h1>
       <Usuario />
-      <form className="form-inline mb-3">
+
+      <div className="menu">
+        {email ? <NavDropdown title={email ? "Conta" : ""} id="basic-nav-dropdown">
+          <NavDropdown.Item href="/conta">
+            <a className="navbar-brand titolo2" href="/">
+              <i className="fa-solid fa-passport"></i>
+            </a>
+            Minha Conta
+          </NavDropdown.Item>
+          <NavDropdown.Item href="/" className="titolo2">
+            <i class="fa-solid fa-person-running"></i>
+            Sair
+          </NavDropdown.Item>
+        </NavDropdown> : ""}
+      </div>
+
+      {/*<form className="form-inline mb-3">
         <input
           className="form-control col-9"
           onChange={handleChanher}
@@ -119,30 +143,24 @@ const Consumo = () => {
           placeholder="Pesquise um nome aqui, é so digita"
           aria-label="Search"
         />
-      </form>
-      <div classNameName="mt-5">
-        <div className="col-sm-11 mr">
+  </form>*/}
+      <Card classNameName="mt-5">
+        <Card.Body className="col-sm-11">
 
           {chec.map(e => (
 
-            <div key={e.id} className="div-lado ml-2 m-auto">
-              <div >
-                <div className="box1 mt-4 m-auto">
+            <div key={e.id} className="div-lado ml-2 box1">
 
-                  <div className="box1 card m-auto">
-                    <h5 className={classes.title}>{e.name}</h5>
-                    <img src={e.imagem} alt="imagem" className={classes.img} />
+              <h5 className={classes.title}>{e.name}</h5>
+              <Card.Img src={e.imagem} alt="imagem" className={classes.img} />
 
-                  </div>
-                </div>
-              </div>
             </div>
 
           ))}
           {!load && <Loading />}
-        </div>
+        </Card.Body>
         <div className="mt-5"></div>
-      </div>
+      </Card>
     </div>
   );
 }

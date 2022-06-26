@@ -33,6 +33,28 @@
     margin: 3px;
   }
 
+  .imgUser {
+    width: 4%;
+    position: absolute;
+    margin-top: -4.2%;
+    margin-left: 70%;
+    border-radius: 100px;
+  }
+
+  .texto{
+    color: #000;
+  }
+
+  a{
+    text-decoration: none;
+    color: #000;
+  }
+
+  .menu{
+    margin-top: -15px;
+    margin-left: 105%;
+  }
+
   @media screen and (max-width: 780px) {
     .box1{
       width: 320px;
@@ -57,14 +79,17 @@
     .nameUser {
       display: none;
     }
-}
-
-.imgUser {
-  width: 8%;
-  position: absolute;
-  margin-top: -2%;
-  margin-left: 80%;
-  border-radius: 100px;
+    .imgUser {
+      width: 12%;
+      position: absolute;
+      margin-top: -14%;
+      margin-left: 85%;
+      border-radius: 100px;
+    }
+      .menu{
+    margin-top: -15px;
+    margin-left: 79%;
+  }
 }
 
 .caseHome{
