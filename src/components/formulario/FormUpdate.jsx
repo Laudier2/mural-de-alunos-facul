@@ -1,10 +1,9 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDropzone } from 'react-dropzone'
-import { FiUpload } from 'react-icons/fi'
 import api from '../../api/api';
 import { toast } from 'react-toastify';
-import { Card, Form, Button } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 
 /**
  * Essa variável é quem determina os valores iniciais dos input citado no values do useState

@@ -1,18 +1,18 @@
 import React, { useState, useContext, useEffect } from 'react';
-import FormularioCadastro from '../formulario/FormUpdate';
+//import FormularioCadastro from '../formulario/FormUpdate';
 import './cadastro.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import Modal from '../modal/ModalWiel';
+//import Modal from '../modal/ModalWiel';
 import { toast } from 'react-toastify';
 import AppContext from '../../Context/SatateDate'
 import { useNavigate } from 'react-router-dom'
-import { Card } from 'react-bootstrap'
+import { Card, Button, Modal, Form, Table } from 'react-bootstrap'
 
 export default function Cadastro() {
   console.clear()
 
-  const { users, logout } = useContext(AppContext)
+  const { users } = useContext(AppContext)
 
   const URL = "https://my-app-ts1.herokuapp.com/"  //"http://15.228.82.63/"
 
@@ -22,6 +22,7 @@ export default function Cadastro() {
    * possamos preencher os campos imput e atualizá-lo com identificação via id
    *
    */
+
   const [idAtual, setIdAtual] = useState('');
   const [item, setItem] = useState('');
   const [email, setEmail] = useState([]);
@@ -68,18 +69,15 @@ export default function Cadastro() {
       });
   };
 
+  const handleClose = () => setItem(false);
+  const handleShow = () => setItem(true);
+
   return (
-    <Card className="container">
-      <div className="jumbotron jumbotron-fuid bg-img mt-5"></div>
-
-      <Card.Body className="row container">
-        <div className="card">
-          <FormularioCadastro {...{ idAtual, users }} />
-        </div>
-
-        <table className="table">
+    <Card>
+      <Card.Body className="row">
+        <Table responsive="sm">
           <thead>
-            <tr className="text-white">
+            <tr>
               <th scope="col">Usuario</th>
               <th scope="col">E-mail</th>
               <th scope="col">Phone</th>
@@ -93,71 +91,78 @@ export default function Cadastro() {
             <tbody key={r.id} className="container">
               <tr className="btn-outline-secondary text-dark">
                 <th scope="row">
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
-                    onClick={() => {
-                      setItem(r);
-                    }}
-                  >
+                  <Button variant="primary" onClick={() => setItem(r)}>
                     <i className="fas fa-eye" />
-                  </button>
+                  </Button>
 
-                  <div
-                    class="modal fade"
-                    id="exampleModal"
-                    tabindex="-1"
-                    aria-labelledby="exampleModalLabel"
-                    aria-hidden="true"
+                  <Modal
+                    show={item}
+                    onHide={() => setItem(false)}
+                    dialogClassName="modal-90w"
+                    aria-labelledby="example-custom-modal-styling-title"
                   >
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5
-                            class="modal-title titolo2"
-                            id="exampleModalLabel"
-                          >
-                            Dados do Usuário
-                          </h5>
-                          <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                            className="btn-outline-secondary"
-                          ></button>
-                        </div>
-                        <div class="modal-body text-dark">
-                          <Modal dadosItem={item} />
-                        </div>
-                        <div class="modal-footer">
-                          <button
-                            type="button"
-                            class="btn btn-outline-secondary btn-block "
-                            data-bs-dismiss="modal"
-                          >
-                            Fecha
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <Modal.Header closeButton>
+                      <Modal.Title id="example-custom-modal-styling-title">
+                        {item.name}
+                      </Modal.Title>
+                    </Modal.Header>
+
+                    <Modal.Body className="col-6 m-auto">
+                      <Card.Img src={item.imagem} className="" />
+                      <Card.Text className="m-1">
+                        <strong>
+                          Email:{" "}
+                        </strong>
+                        {item.email}
+                        <br />
+                        <strong>
+                          Phone:{" "}
+                        </strong>
+                        {item.phone}
+                      </Card.Text>
+                    </Modal.Body>
+                  </Modal>
                 </th>
                 <td>{r.name}</td>
                 <td>{r.email}</td>
                 <td>{r.phone}</td>
                 <td>
-                  <Link
-                    to="/conta"
-                    onClick={() => {
-                      setIdAtual(r._id);
-                    }}
-                    className="mr-2"
-                  >
+                  <Button variant="primary" onClick={() => setIdAtual(r)}>
                     <i className="fas fa-edit mt-2 p-2 text-info btn btn-light card" />
-                  </Link>
+                  </Button>
+
+                  <Modal show={idAtual} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                      <Modal.Title>Modal heading</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <Form>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                          <Form.Label>Email address</Form.Label>
+                          <Form.Control
+                            type="email"
+                            placeholder="name@example.com"
+                            autoFocus
+                          />
+                        </Form.Group>
+                        <Form.Group
+                          className="mb-3"
+                          controlId="exampleForm.ControlTextarea1"
+                        >
+                          <Form.Label>Example textarea</Form.Label>
+                          <Form.Control as="textarea" rows={3} />
+                        </Form.Group>
+                      </Form>
+                    </Modal.Body>
+                    <Modal.Footer>
+                      <Button variant="secondary" onClick={handleShow}>
+                        Close
+                      </Button>
+                      <Button variant="primary" onClick={handleClose}>
+                        Save Changes
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
                   <Link to="/" onClick={() => Apagausuario(r._id)}>
                     <i className="fas fa-trash-alt mt-2 p-2 text-danger btn btn-light card" />
                   </Link>
@@ -165,9 +170,10 @@ export default function Cadastro() {
               </tr>
             </tbody>
           ))}
-        </table>
+
+        </Table>
 
       </Card.Body>
-    </Card>
+    </Card >
   );
 }

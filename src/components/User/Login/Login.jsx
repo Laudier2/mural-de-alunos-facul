@@ -56,14 +56,14 @@ const UserLogin = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button
+        <Button
           type="submit"
           theme="contained-green"
           className="user-login__submit-button h5 btb p-2 shadow-lg mb-5 bg-body rounded-3 cor-btn"
           rounded
         >
           Entrar
-        </button>
+        </Button>
       </Form>
 
       <Card.Link href="/form" target="_blank">

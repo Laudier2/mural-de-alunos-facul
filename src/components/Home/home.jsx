@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { red } from '@material-ui/core/colors';
+//import { makeStyles } from '@material-ui/core/styles';
+//import { red } from '@material-ui/core/colors';
 import Loading from '../loading/Loading';
 import axios from 'axios'
 import './home.css'
 import { Card, NavDropdown } from 'react-bootstrap';
 
-const useStyles = makeStyles(() => ({
+/*const useStyles = makeStyles(() => ({
 
   icones: {
     width: 16,
@@ -28,18 +28,17 @@ const useStyles = makeStyles(() => ({
   },
   img: {
     width: '100%',
-    height: 220,
+    height: 230,
     margin: 'auto',
   },
   titoloZize: {
     fontSize: 70
   }
 }))
+*/
 
 const Consumo = () => {
-  //console.clear()
 
-  const [busca, setBusca] = useState('')
   const [chec, setChec] = useState([])
   const [load, setLoad] = useState(false)
 
@@ -52,14 +51,13 @@ const Consumo = () => {
         setChec(res)
         setLoad(true)
       })()
-    }, 2000)
+    }, 1000)
   }, [])
 
   useEffect(() => {
     (async () => {
       try {
 
-        setBusca((chec && chec))
         setChec((chec && chec))
 
       } catch (error) {
@@ -68,30 +66,11 @@ const Consumo = () => {
     })()
   }, [chec])
 
-  const classes = useStyles();
-
-
   useEffect(() => {
     return
   }, [])
 
-  const handleChanher = ({ target }) => {
-    if (!target.value) {
-      setChec(busca)
-      return
-    }
 
-    setTimeout(() => {
-      const Reace1 = async () => {
-        const checFilter = chec.filter(({ name }) => name.includes(target.value.toLowerCase()))
-        const r = await checFilter
-
-        setChec(r)
-
-      }
-      Reace1()
-    }, 4000)
-  }
 
   const img = JSON.parse(localStorage.getItem('imagem'))
   const name = JSON.parse(localStorage.getItem('name'))
@@ -107,10 +86,6 @@ const Consumo = () => {
     } else {
       return <div></div>
     }
-  }
-
-  const Sair = () => {
-    localStorage.clear()
   }
 
   const email = JSON.parse(localStorage.getItem("user"))
@@ -135,15 +110,6 @@ const Consumo = () => {
         </NavDropdown> : ""}
       </div>
 
-      {/*<form className="form-inline mb-3">
-        <input
-          className="form-control col-9"
-          onChange={handleChanher}
-          type="search"
-          placeholder="Pesquise um nome aqui, é so digita"
-          aria-label="Search"
-        />
-  </form>*/}
       <Card classNameName="mt-5">
         <Card.Body className="col-sm-11">
 
@@ -151,8 +117,9 @@ const Consumo = () => {
 
             <div key={e.id} className="div-lado ml-2 box1">
 
-              <h5 className={classes.title}>{e.name}</h5>
-              <Card.Img src={e.imagem} alt="imagem" className={classes.img} />
+              <h5 className="m-h1">{e.name}</h5>
+
+              <Card.Img src={e.imagem} alt="imagem" className="h-100" />
 
             </div>
 

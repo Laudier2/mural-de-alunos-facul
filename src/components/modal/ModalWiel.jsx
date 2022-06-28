@@ -1,7 +1,5 @@
 import './modal.css';
 
-console.clear()
-
 const Modal = ({ dadosItem }) => {
 
   return (

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import api from '../../api/api';
 import { toast } from 'react-toastify';
 import './form.css'
-import { Card, Form, Button } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 
 /**
  * Essa variável é quem determina os valores iniciais dos input citado no values do useState
