@@ -22,7 +22,7 @@ function BasicExample() {
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/sobre">Sobre</Nav.Link>
                         <NavDropdown title="Mais" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="https://laudierstdev.ga/">
+                            <NavDropdown.Item href="https://www.youtube.com/channel/UCk8HdZCe8RFMkZqVIQ0mL3g">
                                 <a className="navbar-brand" href="/">
                                     <i className="fa-brands fa-youtube text-danger"></i>
                                 </a>
@@ -41,7 +41,7 @@ function BasicExample() {
                                 LinkDin
                             </NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="https://www.youtube.com/channel/UCk8HdZCe8RFMkZqVIQ0mL3g">
+                            <NavDropdown.Item href="https://laudierstdev.ga/">
                                 <a className="navbar-brand" href="/">
                                     <i className="fa-solid fa-passport"></i>
                                 </a>

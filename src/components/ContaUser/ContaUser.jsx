@@ -126,48 +126,42 @@ export default function Cadastro() {
                 <td>{r.name}</td>
                 <td>{r.email}</td>
                 <td>{r.phone}</td>
-                <td>
-                  <Button variant="primary" onClick={() => setIdAtual(r)}>
-                    <i className="fas fa-edit mt-2 p-2 text-info btn btn-light card" />
-                  </Button>
+                <td onClick={() => setItem(r)} ><i className="fas fa-edit mt-2 p-2 text-info btn btn-light card" /></td>
+                <td onClick={() => Apagausuario(r._id)}><i className="fas fa-trash-alt mt-2 p-2 text-danger btn btn-light card" /></td>
 
-                  <Modal show={idAtual} onHide={handleClose}>
-                    <Modal.Header closeButton>
-                      <Modal.Title>Modal heading</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                      <Form>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                          <Form.Label>Email address</Form.Label>
-                          <Form.Control
-                            type="email"
-                            placeholder="name@example.com"
-                            autoFocus
-                          />
-                        </Form.Group>
-                        <Form.Group
-                          className="mb-3"
-                          controlId="exampleForm.ControlTextarea1"
-                        >
-                          <Form.Label>Example textarea</Form.Label>
-                          <Form.Control as="textarea" rows={3} />
-                        </Form.Group>
-                      </Form>
-                    </Modal.Body>
-                    <Modal.Footer>
-                      <Button variant="secondary" onClick={handleShow}>
-                        Close
-                      </Button>
-                      <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                      </Button>
-                    </Modal.Footer>
-                  </Modal>
-                  <Link to="/" onClick={() => Apagausuario(r._id)}>
-                    <i className="fas fa-trash-alt mt-2 p-2 text-danger btn btn-light card" />
-                  </Link>
-                </td>
               </tr>
+              <Modal show={idAtual} onHide={handleClose}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Modal heading</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <Form>
+                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                      <Form.Label>Email address</Form.Label>
+                      <Form.Control
+                        type="email"
+                        placeholder="name@example.com"
+                        autoFocus
+                      />
+                    </Form.Group>
+                    <Form.Group
+                      className="mb-3"
+                      controlId="exampleForm.ControlTextarea1"
+                    >
+                      <Form.Label>Example textarea</Form.Label>
+                      <Form.Control as="textarea" rows={3} />
+                    </Form.Group>
+                  </Form>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={handleShow}>
+                    Close
+                  </Button>
+                  <Button variant="primary" onClick={handleClose}>
+                    Save Changes
+                  </Button>
+                </Modal.Footer>
+              </Modal>
             </tbody>
           ))}
 

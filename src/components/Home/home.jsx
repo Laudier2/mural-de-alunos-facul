@@ -92,7 +92,7 @@ const Consumo = () => {
 
   return (
     <div>
-      <h1 className="titolo2 mb-4 mt-2">Mural de alunos</h1>
+      <h1 className="titolo2 mb-4 mt-2 h1">Mural de alunos</h1>
       <Usuario />
 
       <div className="menu">
