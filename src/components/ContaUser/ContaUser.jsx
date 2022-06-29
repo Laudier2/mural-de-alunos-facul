@@ -1,9 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
-//import FormularioCadastro from '../formulario/FormUpdate';
 import './cadastro.css';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-//import Modal from '../modal/ModalWiel';
 import { toast } from 'react-toastify';
 import AppContext from '../../Context/SatateDate'
 import { useNavigate } from 'react-router-dom'

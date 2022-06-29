@@ -1,9 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import StoreContext from '../../../Context/SatateDate'
 import { Card, Button, Form } from 'react-bootstrap'
-
 import './Login.css';
-//import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom'
 
 const UserLogin = () => {
@@ -11,6 +9,7 @@ const UserLogin = () => {
 
   const { login } = useContext(StoreContext)
 
+  const [load, setLoad] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
@@ -31,6 +30,14 @@ const UserLogin = () => {
     }
 
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      (async () => {
+        setLoad(false)
+      })()
+    }, 5000)
+  }, [])
 
   return (
     <div className="user-login card p-5 mt-5 mrg">
@@ -59,17 +66,16 @@ const UserLogin = () => {
         <Button
           type="submit"
           theme="contained-green"
-          className="user-login__submit-button h5 btb p-2 shadow-lg mb-5 bg-body rounded-3 cor-btn"
+          className="user-login__submit-button text-dark h5 p-2 shadow-lg mb-5 bg-body rounded-3 cor-btn"
           rounded
         >
           Entrar
         </Button>
       </Form>
 
-      <Card.Link href="/form" target="_blank">
+      <Card.Link href="/form">
         Ainda não tenho conta
       </Card.Link>
-
     </div>
   );
 };
