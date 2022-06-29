@@ -10,7 +10,7 @@ function BasicExample() {
     return (
         <Navbar bg="light" expand="lg">
             <Container>
-                <Navbar.Brand href="/" className="titolo2">
+                <Navbar.Brand href="/" className="titolo3">
                     <a className="navbar-brand" href="/">
                         <i className="fa-solid fa-house"></i>
                     </a>

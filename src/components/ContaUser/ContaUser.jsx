@@ -226,6 +226,15 @@ export default function Cadastro() {
                         value={values.name}
                         onChange={onChange}
                       />
+                      <Form.Label>Imagem</Form.Label>
+                      <Form.Control
+                        type="text"
+                        name="imagem"
+                        placeholder="Insira uma imagem"
+                        autoFocus
+                        value={values.imagem}
+                        onChange={onChange}
+                      />
                       <Form.Label>Email</Form.Label>
                       <Form.Control
                         type="email"

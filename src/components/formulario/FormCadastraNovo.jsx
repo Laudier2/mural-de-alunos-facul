@@ -140,7 +140,7 @@ export default function FormularioCadastro(props) {
           <input
             type="email"
             className="form-control"
-            placeholder="Senha"
+            placeholder="E-mail"
             name="email"
             value={values.email}
             onChange={onChange}
@@ -186,7 +186,7 @@ export default function FormularioCadastro(props) {
           className="user-login__submit-button h5 btb p-2 mt-3 shadow-lg mb-5 bg-body rounded-3 cor-btn"
           rounded
         >
-          Cadastra
+          Cadastrar
         </button>
       </Form>
     </div>
