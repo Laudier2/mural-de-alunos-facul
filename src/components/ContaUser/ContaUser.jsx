@@ -159,12 +159,12 @@ export default function Cadastro() {
         <Table responsive="sm">
           <thead>
             <tr>
-              <th scope="col">Usuario</th>
-              <th scope="col">E-mail</th>
-              <th scope="col">Phone</th>
               <th scope="col">
                 <i className="fas fa-coins" />
               </th>
+              <th scope="col">Usuario</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Phone</th>
             </tr>
           </thead>
 
