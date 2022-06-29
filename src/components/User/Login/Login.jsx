@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import StoreContext from '../../../Context/SatateDate'
 import { Card, Button, Form } from 'react-bootstrap'
 import './Login.css';
@@ -9,7 +9,6 @@ const UserLogin = () => {
 
   const { login } = useContext(StoreContext)
 
-  const [load, setLoad] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
@@ -30,14 +29,6 @@ const UserLogin = () => {
     }
 
   }
-
-  useEffect(() => {
-    setTimeout(() => {
-      (async () => {
-        setLoad(false)
-      })()
-    }, 5000)
-  }, [])
 
   return (
     <div className="user-login card p-5 mt-5 mrg">

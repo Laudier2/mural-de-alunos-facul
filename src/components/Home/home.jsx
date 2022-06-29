@@ -88,6 +88,10 @@ const Consumo = () => {
     }
   }
 
+  const Sair = () => {
+    localStorage.clear()
+  }
+
   const email = JSON.parse(localStorage.getItem("user"))
 
   return (
@@ -103,7 +107,7 @@ const Consumo = () => {
             </a>
             Minha Conta
           </NavDropdown.Item>
-          <NavDropdown.Item href="/" className="titolo2">
+          <NavDropdown.Item href="/" className="titolo2" onClick={Sair}>
             <i class="fa-solid fa-person-running"></i>
             Sair
           </NavDropdown.Item>
@@ -115,6 +119,7 @@ const Consumo = () => {
 
           {chec.map(e => (
 
+
             <div key={e.id} className="div-lado ml-2 box1">
 
               <h5 className="m-h1">{e.name}</h5>
@@ -123,12 +128,13 @@ const Consumo = () => {
 
             </div>
 
+
           ))}
           {!load && <Loading />}
         </Card.Body>
         <div className="mt-5"></div>
       </Card>
-    </div>
+    </div >
   );
 }
 

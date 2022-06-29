@@ -5,6 +5,15 @@ import { toast } from 'react-toastify';
 import AppContext from '../../Context/SatateDate'
 import { useNavigate } from 'react-router-dom'
 import { Card, Button, Modal, Form, Table } from 'react-bootstrap'
+import api from '../../api/api'
+
+const camposIniciasDeValores = {
+  name: '',
+  imagem: '',
+  email: '',
+  password: '',
+  phone: ''
+};
 
 export default function Cadastro() {
   console.clear()
@@ -25,6 +34,82 @@ export default function Cadastro() {
   const [email, setEmail] = useState([]);
 
   const navigate = useNavigate()
+
+  const [values, setValues] = useState(camposIniciasDeValores);
+  const history = useNavigate();
+
+  /**
+   * Aqui estamos utilizando o onChange para verifica tudo que esta sendo digitado
+   * nos inputes via name, e passando todo esses valores para a variável do nosso useState
+   * O values e assim podemos criar na nossa base de dados via axios como vamos ver abaixo.
+   */
+  const onChange = (ev) => {
+    const { name, value } = ev.target;
+
+    setValues({ ...values, [name]: value });
+  };
+  /**
+   * Aqui estamos fazendo uma espesse de filtragem do produto via id via props,
+   * lembra da variável que eivamos para o formulário via props a idAtual, então é ela que
+   * estamos usando, porque ela traz o id de um produto
+   */
+  useEffect(() => {
+    if (idAtual) {
+      api
+        .get(`/admin/${idAtual}`)
+        .then((res) => {
+          setValues(res.data);
+        });
+    }
+  }, [idAtual]);
+  /**
+   * E aqui que fazemos a criação e editação do produto o onSubmit.
+   */
+  function onSubmit(ev) {
+    /**
+     * Esse ev.preventDefault() é para evitar que o botão faça a,
+     * ação natural dele que é da refresh, e ai podemos determinar para
+     * onde a pagina seja redirecionada com o useHistory do react-router-dom
+     */
+    ev.preventDefault();
+
+    /**
+     * Agora estamos criando uma variável method com uma condição.
+     * Se a requisição for put, vai ser executada put, se não execute post
+     */
+    const method = idAtual ? 'put' : 'put';
+    const url = idAtual
+      ? `${URL}${idAtual}`
+      : `${URL}`;
+
+    /**
+     * E o que for resolvido na condição de cima vai ser executado aqui.
+     * Seja para criar um produto ou para atualizar
+     */
+    api[method](url, values)
+      .then(() => {
+        if (idAtual === '') {
+          toast.success('Usuario Cadastrado com sucesso');
+        } else {
+          toast.success('O Usuario foi Atualizado com sucesso');
+
+        }
+        //Correção de eero
+        history("/conta")
+        setTimeout(() => {
+          window.location.reload()
+        }, 6250)
+      })
+      .catch((err) => {
+        toast.error('Os campos sao obrigatorio ou usuario email ja cadastrado, tente novamente');
+        //Correção
+        history('/conta');
+        setTimeout(() => {
+          window.location.reload()
+        }, 6250)
+
+      });
+  }
 
   useEffect(() => {
     (async () => {
@@ -66,8 +151,7 @@ export default function Cadastro() {
       });
   };
 
-  const handleClose = () => setItem(false);
-  const handleShow = () => setItem(true);
+  const handleClose = () => setIdAtual(false);
 
   return (
     <Card>
@@ -123,41 +207,63 @@ export default function Cadastro() {
                 <td>{r.name}</td>
                 <td>{r.email}</td>
                 <td>{r.phone}</td>
-                <td onClick={() => setItem(r)} ><i className="fas fa-edit mt-2 p-2 text-info btn btn-light card" /></td>
+                <td onClick={() => setIdAtual(r._id)} ><i className="fas fa-edit mt-2 p-2 text-info btn btn-light card" /></td>
                 <td onClick={() => Apagausuario(r._id)}><i className="fas fa-trash-alt mt-2 p-2 text-danger btn btn-light card" /></td>
 
               </tr>
               <Modal show={idAtual} onHide={handleClose}>
                 <Modal.Header closeButton>
-                  <Modal.Title>Modal heading</Modal.Title>
+                  <Modal.Title className="titolo m-auto">Sistema de Atualização de dados</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   <Form>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                      <Form.Label>Email address</Form.Label>
+                      <Form.Label>Name</Form.Label>
+                      <Form.Control
+                        type="name"
+                        placeholder="Name"
+                        name="name"
+                        value={values.name}
+                        onChange={onChange}
+                      />
+                      <Form.Label>Email</Form.Label>
                       <Form.Control
                         type="email"
+                        name="email"
                         placeholder="name@example.com"
                         autoFocus
+                        value={values.email}
+                        onChange={onChange}
                       />
-                    </Form.Group>
-                    <Form.Group
-                      className="mb-3"
-                      controlId="exampleForm.ControlTextarea1"
-                    >
-                      <Form.Label>Example textarea</Form.Label>
-                      <Form.Control as="textarea" rows={3} />
+                      <Form.Label>Password</Form.Label>
+                      <Form.Control
+                        type="text"
+                        name="password"
+                        placeholder="password"
+                        value={values.password}
+                        onChange={onChange}
+                      />
+                      <Form.Label>Phone</Form.Label>
+                      <Form.Control
+                        type="text"
+                        name="phone"
+                        placeholder="phone"
+                        autoFocus
+                        value={values.phone}
+                        onChange={onChange}
+                      />
+                      <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                          Fecha
+                        </Button>
+                        <Button variant="primary" onClick={onSubmit}>
+                          Salvar
+                        </Button>
+                      </Modal.Footer>
                     </Form.Group>
                   </Form>
                 </Modal.Body>
-                <Modal.Footer>
-                  <Button variant="secondary" onClick={handleShow}>
-                    Close
-                  </Button>
-                  <Button variant="primary" onClick={handleClose}>
-                    Save Changes
-                  </Button>
-                </Modal.Footer>
+
               </Modal>
             </tbody>
           ))}
