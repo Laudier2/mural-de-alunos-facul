@@ -12,6 +12,12 @@ const UserLogin = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
+  const [verpass, setVerpass] = useState(false)
+
+  const MostraPassword = () => {
+    setVerpass(prevState => !prevState)
+  }
+
   const navigate = useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -47,9 +53,13 @@ const UserLogin = () => {
         </div>
         <div className="user-login__form-control">
           <label htmlFor="password">Senha</label>
+          <div onClick={MostraPassword}>
+            {verpass ? <i class="fa-solid fa-eye-slash olho2"></i> :
+              <i className="fas fa-eye olho2" />}
+          </div>
           <input
             id="password"
-            type="password"
+            type={verpass ? "text" : "password"}
             name="password"
             onChange={(e) => setPassword(e.target.value)}
           />

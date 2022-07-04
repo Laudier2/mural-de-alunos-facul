@@ -68,6 +68,13 @@
     0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
 }
 
+.olho{
+  position: absolute;
+  margin-top: 2.5%;
+  margin-left: 87%;
+  cursor: pointer;
+}
+
 .titolo2 {
   margin: auto;
   font-size: 25px;

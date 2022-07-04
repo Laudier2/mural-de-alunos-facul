@@ -7,14 +7,6 @@ import { useNavigate } from 'react-router-dom'
 import { Card, Button, Modal, Form, Table } from 'react-bootstrap'
 import api from '../../api/api'
 
-const camposIniciasDeValores = {
-  name: '',
-  imagem: '',
-  email: '',
-  password: '',
-  phone: ''
-};
-
 export default function Cadastro() {
   console.clear()
 
@@ -35,8 +27,14 @@ export default function Cadastro() {
 
   const navigate = useNavigate()
 
-  const [values, setValues] = useState(camposIniciasDeValores);
+  const [values, setValues] = useState([]);
   const history = useNavigate();
+
+  const [verpass, setVerpass] = useState(false)
+
+  const MostraPassword = () => {
+    setVerpass(prevState => !prevState)
+  }
 
   /**
    * Aqui estamos utilizando o onChange para verifica tudo que esta sendo digitado
@@ -124,8 +122,6 @@ export default function Cadastro() {
     return reqEmail.email.includes(email)
   })
 
-  //console.log(mail)
-
   /**
    * Essa função é responsável por apaga um usuario via id,
    * que esta vindo via evento do onClick
@@ -151,6 +147,7 @@ export default function Cadastro() {
       });
   };
 
+  //fechar Mural
   const handleClose = () => setIdAtual(false);
 
   return (
@@ -220,7 +217,7 @@ export default function Cadastro() {
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                       <Form.Label>Name</Form.Label>
                       <Form.Control
-                        type="name"
+                        type="text"
                         placeholder="Name"
                         name="name"
                         value={values.name}
@@ -245,8 +242,12 @@ export default function Cadastro() {
                         onChange={onChange}
                       />
                       <Form.Label>Password</Form.Label>
+                      <div onClick={MostraPassword}>
+                        {verpass ? <i class="fa-solid fa-eye-slash olho"></i> :
+                          <i className="fas fa-eye olho" />}
+                      </div>
                       <Form.Control
-                        type="text"
+                        type={verpass ? "text" : "password"}
                         name="password"
                         placeholder="password"
                         value={values.password}

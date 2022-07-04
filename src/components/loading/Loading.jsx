@@ -10,11 +10,6 @@ export default function Loading() {
             <div className="loading container">
                 <img src="lod.gif" alt="lod.gif" className="img_lod" />
             </div>
-            <div>
-                <p className="titolo">
-                    carregando
-                </p>
-            </div>
         </div>
     )
 }

@@ -3,10 +3,6 @@
 }
 
 .titolo3 {
-    position: absolute;
-    margin-left: -50px;
-    margin: auto;
-    font-size: 25px;
     color: rgb(10, 10, 10);
     font-weight: bold;
     text-shadow: 0 3px 0 rgb(121, 116, 116), 0 1px 0 #c9c9c9, 0 1px 0 #bbb,
@@ -19,10 +15,6 @@
 @media screen and (max-width: 780px) {
     .mrg2{
         margin-left: 60%;
-    }
-    .titolo3{
-        position: absolute;
-        margin-left: -150px;
     }
     
 }

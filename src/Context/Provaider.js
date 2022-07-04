@@ -36,8 +36,6 @@ const AppProvider = ({ children }) => {
 
         //console.log('login auth', response.data)
 
-        toast.success("Login efetuado com sucesso, aguarde mais uns segubdos...")
-
         const loggedUser = response.data.data.email
         const token = response.data.data.token
         const imagem = response.data.data.imagem
@@ -55,6 +53,12 @@ const AppProvider = ({ children }) => {
         api.defaults.headers.Authorization = `Bearer ${token}`
 
         setUser(loggedUser)
+
+        setTimeout(() => {
+            token ? toast.success("Login efetuado com sucesso, aguarde mais uns segubdos...") :
+                toast.error("Usuario uo senha invalida tente novamente!")
+        }, 2000)
+
     }
 
     const logout = () => {

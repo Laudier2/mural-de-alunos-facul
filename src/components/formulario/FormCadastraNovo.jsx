@@ -22,6 +22,12 @@ export default function FormularioCadastro(props) {
   const [values, setValues] = useState(camposIniciasDeValores);
   const history = useNavigate();
 
+  const [verpass, setVerpass] = useState(false)
+
+  const MostraPassword = () => {
+    setVerpass(prevState => !prevState)
+  }
+
   const URL = "https://my-app-ts1.herokuapp.com/" //"http://15.228.82.63/"
 
   /**
@@ -153,7 +159,7 @@ export default function FormularioCadastro(props) {
             </div>
           </div>
           <input
-            type="password"
+            type={verpass ? "text" : "password"}
             className="form-control"
             placeholder="Password"
             min="0"
@@ -161,7 +167,10 @@ export default function FormularioCadastro(props) {
             value={values.password}
             onChange={onChange}
           />
-
+          <div onClick={MostraPassword}>
+            {verpass ? <i class="fa-solid fa-eye-slash olho3"></i> :
+              <i className="fas fa-eye olho3" />}
+          </div>
         </div>
         <div className="form-group input-group mt-2">
           <div className="input-grou-prepend align-self-center">
@@ -188,6 +197,7 @@ export default function FormularioCadastro(props) {
         >
           Cadastrar
         </button>
+        <a href="/login">Ja tenho conta</a>
       </Form>
     </div>
   );
