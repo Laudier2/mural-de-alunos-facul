@@ -7,6 +7,18 @@ import { useNavigate } from 'react-router-dom'
 import { Card, Button, Modal, Form, Table } from 'react-bootstrap'
 import api from '../../api/api'
 
+/*const mail2 = [
+  {
+    id_: 1,
+    name: "Laudier",
+    email: "laudier@gmail.com",
+    phone: 75998239680,
+    imagem: "https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?w=2000"
+  }
+]
+
+console.log(mail2)*/
+
 export default function Cadastro() {
   console.clear()
 
@@ -23,7 +35,7 @@ export default function Cadastro() {
 
   const [idAtual, setIdAtual] = useState('');
   const [item, setItem] = useState('');
-  const [email, setEmail] = useState([]);
+  const [email, setEmail] = useState();
 
   const navigate = useNavigate()
 
@@ -118,7 +130,7 @@ export default function Cadastro() {
     })()
   }, [])
 
-  const mail = users.filter((reqEmail) => {
+  /*const mail = users.filter((reqEmail) => {
     return reqEmail.email.includes(email)
   })
 
@@ -165,7 +177,7 @@ export default function Cadastro() {
             </tr>
           </thead>
 
-          {mail.map((r) => (
+          {users.map((r) => (
             <tbody key={r.id} className="container">
               <tr className="btn-outline-secondary text-dark">
                 <th scope="row">
