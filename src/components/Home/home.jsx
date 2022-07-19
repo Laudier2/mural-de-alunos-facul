@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 //import { makeStyles } from '@material-ui/core/styles';
 //import { red } from '@material-ui/core/colors';
 import Loading from '../loading/Loading';
 import axios from 'axios'
 import './home.css'
-import { Card, NavDropdown } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
+import Contexte from '../../Context/SatateDate'
+import { Button } from 'bootstrap';
 
 /*const useStyles = makeStyles(() => ({
 
@@ -39,6 +41,8 @@ import { Card, NavDropdown } from 'react-bootstrap';
 
 const Consumo = () => {
 
+  const { filmes } = useContext(Contexte)
+
   const [chec, setChec] = useState([])
   const [load, setLoad] = useState(false)
 
@@ -70,7 +74,7 @@ const Consumo = () => {
     return
   }, [])
 
-
+  console.log(filmes)
 
   const img = JSON.parse(localStorage.getItem('imagem'))
   const name = JSON.parse(localStorage.getItem('name'))
@@ -88,48 +92,35 @@ const Consumo = () => {
     }
   }
 
-  const Sair = () => {
-    localStorage.clear()
-  }
-
-  const email = JSON.parse(localStorage.getItem("user"))
-
   return (
     <div>
-      <h1 className="titolo2 mb-4 mt-2 h1">Mural de alunos</h1>
+      <h1 className="titolo2 mb-4 mt-2 h1">Serie e Filmes</h1>
       <Usuario />
 
-      <div className="menu">
-        {email ? <NavDropdown title={email ? "Conta" : ""} id="basic-nav-dropdown">
-          <NavDropdown.Item href="/conta">
-            <a className="navbar-brand titolo2" href="/">
-              <i className="fa-solid fa-passport"></i>
-            </a>
-            Minha Conta
-          </NavDropdown.Item>
-          <NavDropdown.Item href="/" className="titolo2" onClick={Sair}>
-            <i class="fa-solid fa-person-running"></i>
-            Sair
-          </NavDropdown.Item>
-        </NavDropdown> : ""}
-      </div>
-
       <Card classNameName="mt-5">
-        <Card.Body className="col-sm-11">
+        <Card.Body className="col-sm-12">
 
-          {chec.map(e => (
+          {filmes.map(e => (
 
 
             <div key={e.id} className="div-lado ml-2 box1">
 
-              <h5 className="m-h1">{e.name}</h5>
+              <div className="card">
 
-              <Card.Img src={e.imagem} alt="imagem" className="h-100" />
+                <Card.Img src={`https://image.tmdb.org/t/p/w500/${e.backdrop_path}`} alt="imagem" className="card-img-top" />
+
+                <Card.Title>
+                <div class="card-body">
+                  <h5 class="card-title">{e.title}</h5>
+                </div>
+                </Card.Title>
+
+              </div>
 
             </div>
 
-
           ))}
+          
           {!load && <Loading />}
         </Card.Body>
         <div className="mt-5"></div>

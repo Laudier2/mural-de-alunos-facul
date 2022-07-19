@@ -3,13 +3,17 @@ import api from '../api/api';
 import { createSession } from '../api/api';
 import ConsumeContextData from './SatateDate'
 import { toast } from 'react-toastify';
+import axios from 'axios';
 //import { useNavigate } from 'react-router-dom'
 
 const AppProvider = ({ children }) => {
 
+    const url = "https://api.themoviedb.org/3/movie/popular?api_key=0e7ecd94eb22d8726c6a740dc968161a&language=pt-BR&page=1"
+
     const [user, setUser] = useState(null)
     const [users, setUsers] = useState([])
     const [loading, setLoading] = useState(true)
+    const [filmes, setFilmes] = useState([])
 
     useEffect(() => {
         (async () => {
@@ -28,6 +32,14 @@ const AppProvider = ({ children }) => {
         }
 
         setLoading(false)
+    }, [])
+
+    useEffect(() => {
+        (async() => {
+            const filme = await axios.get(url)
+
+            setFilmes(filme.data.results)
+        })()
     }, [])
 
     const login = async (email, password) => {
@@ -72,7 +84,7 @@ const AppProvider = ({ children }) => {
     }
 
     return (
-        <ConsumeContextData.Provider value={{ users, auth: !!user, user, loading, login, logout }}>
+        <ConsumeContextData.Provider value={{ filmes, users, auth: !!user, user, loading, login, logout }}>
             {children}
         </ConsumeContextData.Provider>
     );

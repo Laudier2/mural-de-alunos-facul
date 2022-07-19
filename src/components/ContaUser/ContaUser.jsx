@@ -130,7 +130,7 @@ export default function Cadastro() {
     })()
   }, [])
 
-  /*const mail = users.filter((reqEmail) => {
+  const mail = users.filter((reqEmail) => {
     return reqEmail.email.includes(email)
   })
 
@@ -177,7 +177,7 @@ export default function Cadastro() {
             </tr>
           </thead>
 
-          {users.map((r) => (
+          {mail.map((r) => (
             <tbody key={r.id} className="container">
               <tr className="btn-outline-secondary text-dark">
                 <th scope="row">
@@ -255,7 +255,7 @@ export default function Cadastro() {
                       />
                       <Form.Label>Password</Form.Label>
                       <div onClick={MostraPassword}>
-                        {verpass ? <i class="fa-solid fa-eye-slash olho"></i> :
+                        {!!verpass ? <i class="fa-solid fa-eye-slash olho"></i> :
                           <i className="fas fa-eye olho" />}
                       </div>
                       <Form.Control

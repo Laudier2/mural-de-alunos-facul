@@ -5,6 +5,10 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function BasicExample() {
 
+    const Sair = () => {
+       localStorage.clear()
+    }
+
     const email = JSON.parse(localStorage.getItem("user"))
 
     return (
@@ -48,6 +52,22 @@ function BasicExample() {
                                 Portifólio
                             </NavDropdown.Item>
                         </NavDropdown>
+                        <Nav>
+                        <div className="">
+                            {email ? <NavDropdown title={email ? "Conta" : ""} id="basic-nav-dropdown">
+                            <NavDropdown.Item href="/conta">
+                                <a className="navbar-brand titolo2" href="/">
+                                <i className="fa-solid fa-passport"></i>
+                                </a>
+                                Minha Conta
+                            </NavDropdown.Item>
+                            <NavDropdown.Item href="/" className="titolo2" onClick={Sair}>
+                                <i class="fa-solid fa-person-running"></i>
+                                Sair
+                            </NavDropdown.Item>
+                            </NavDropdown> : ""}
+                        </div>
+                    </Nav>
                     </Nav>
                     <Nav>
                         <Nav.Link href="/form">
