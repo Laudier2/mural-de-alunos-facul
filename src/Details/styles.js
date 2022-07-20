@@ -52,4 +52,38 @@ export const Container = styled.div`
     .release-date {
         opacity: 0.5;
     }
+
+    @media screen and (max-width: 780px) {
+        *{
+            margin-top: 1rem;
+        }
+        h1 {
+            margin: 1rm 0;
+        }
+    
+        .movie {
+            display: flex;
+            aling-items: center;
+            justify-content: center;
+        }
+        
+        img {
+            width: 200px;
+            height: 80vh;
+            border-radius: 1rem;
+        }
+    
+        .details {
+            display: flex;
+            flex-direction: column;
+            aling-items: flex-start;
+            margin-left: 1rem;
+            max-width: 50%;
+        }
+        span {
+            line-height: 130%;
+            margin-bottom: 0.1rem;
+            font-size: 86%;
+        }
+    }
 `
