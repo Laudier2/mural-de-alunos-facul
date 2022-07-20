@@ -8,6 +8,7 @@ import Erro404 from '../components/page404/erro404';
 import { useContext } from 'react';
 import AppContext from '../Context/SatateDate'
 import './router.css'
+import Details from '../Details/Details';
 
 const AdminRotas = () => {
 
@@ -48,6 +49,7 @@ const AdminRotas = () => {
                     <Route exact path="/login" element={<UserLogin />} />
                     <Route exact path="/form" element={<FormularioCadastro />} />
                     <Route exact path="/sobre" element={<Erro404 />} />
+                    <Route exact path="/details/:id" element={<Details />} />
                 </Routes>
             </BrowserRouter>
         </AppProvider>

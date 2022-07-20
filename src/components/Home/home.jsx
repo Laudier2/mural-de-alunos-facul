@@ -106,7 +106,7 @@ const Consumo = () => {
 
             <div key={e.id} className="div-lado ml-2 box1">
 
-              <div className="card">
+              <Card.Link href={`/details/${e.id}`} className="card">
 
                 <img src={`https://image.tmdb.org/t/p/w500/${e.backdrop_path}`} alt="imagem" className="card-img-top alt" />
 
@@ -116,7 +116,7 @@ const Consumo = () => {
                 </div>
                 </Card.Title>
 
-              </div>
+              </Card.Link>
 
             </div>
 

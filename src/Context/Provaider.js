@@ -8,8 +8,6 @@ import key from "../Key/key"
 
 const AppProvider = ({ children }) => {
 
-    console.log(key())
-
     const url = `https://api.themoviedb.org/3/movie/popular?api_key=${key()}&language=pt-BR&page=`
 
     //const list_num = 1
