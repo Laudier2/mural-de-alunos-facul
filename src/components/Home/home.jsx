@@ -6,7 +6,6 @@ import axios from 'axios'
 import './home.css'
 import { Card } from 'react-bootstrap';
 import Contexte from '../../Context/SatateDate'
-import { Button } from 'bootstrap';
 
 /*const useStyles = makeStyles(() => ({
 
@@ -97,7 +96,7 @@ const Consumo = () => {
       <h1 className="titolo2 mb-4 mt-2 h1">Serie e Filmes</h1>
       <Usuario />
 
-      <Card classNameName="mt-5">
+      <Card className="mt-5">
         <Card.Body className="col-sm-12">
 
           {filmes.map(e => (
@@ -110,8 +109,8 @@ const Consumo = () => {
                 <Card.Img src={`https://image.tmdb.org/t/p/w500/${e.backdrop_path}`} alt="imagem" className="card-img-top" />
 
                 <Card.Title>
-                <div class="card-body">
-                  <h5 class="card-title">{e.title}</h5>
+                <div className="card-body">
+                  <h5 className="card-title">{e.title}</h5>
                 </div>
                 </Card.Title>
 
