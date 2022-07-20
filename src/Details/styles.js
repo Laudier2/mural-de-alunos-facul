@@ -16,6 +16,7 @@ export const Container = styled.div`
     
     img {
         width: 400px;
+        margin-left: 7px;
         border-radius: 1rem;
     }
 
@@ -69,7 +70,7 @@ export const Container = styled.div`
         
         img {
             width: 200px;
-            height: 80vh;
+            height: 70vh;
             border-radius: 1rem;
         }
     
@@ -83,7 +84,18 @@ export const Container = styled.div`
         span {
             line-height: 130%;
             margin-bottom: 0.1rem;
-            font-size: 86%;
+            font-size: 84%;
+        }
+        button {
+            background: #6654da;
+            boder: none;
+            cursor: pointer;
+            border-radius: 1rem;
+            color: white;
+            padding: 0.4rem 2rem;
+            margin-top: 1rem;
+            font-size: 80%;
+            transition: all 0.3s;
         }
     }
 `

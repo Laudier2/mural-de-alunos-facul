@@ -6,6 +6,7 @@ import AppContext from '../../Context/SatateDate'
 import { useNavigate } from 'react-router-dom'
 import { Card, Button, Modal, Form, Table } from 'react-bootstrap'
 import api from '../../api/api'
+import { IconName } from "react-icons/im";
 
 /*const mail2 = [
   {
@@ -289,7 +290,7 @@ export default function Cadastro() {
               </Modal>
             </tbody>
           ))}
-
+          
         </Table>
 
       </Card.Body>
