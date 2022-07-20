@@ -46,9 +46,13 @@
   opacity: 1;
 }
 
+.alt{
+  height: 30vh;
+}
+
 .box1{
     width: 250px;
-    height: 280px;
+    height: 45vh;
     margin: 2px 18px;
     transition: 1s;
     text-align: center;
@@ -82,7 +86,7 @@
   }
 
   .imgUser {
-    width: 4%;
+    width: 5%;
     position: absolute;
     margin-top: -4.2%;
     margin-left: 70%;
@@ -154,10 +158,11 @@
 }
 
 .nameUser {
-  color: white;
+  width: 10%;
   position: absolute;
-  margin-top: 3%;
-  margin-left: 81.2%;
+  margin-top: -1%;
+  margin-left: 70.5%;
   border-radius: 100px;
+  color: transparent;
 }
 

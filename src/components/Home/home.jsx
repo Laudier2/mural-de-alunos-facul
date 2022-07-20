@@ -6,6 +6,7 @@ import axios from 'axios'
 import './home.css'
 import { Card } from 'react-bootstrap';
 import Contexte from '../../Context/SatateDate'
+import Slind from '../Slind/Slind';
 
 /*const useStyles = makeStyles(() => ({
 
@@ -93,8 +94,9 @@ const Consumo = () => {
 
   return (
     <div>
-      <h1 className="titolo2 mb-4 mt-2 h1">Serie e Filmes</h1>
+      
       <Usuario />
+      <Slind />
 
       <Card className="mt-5">
         <Card.Body className="col-sm-12">
@@ -106,7 +108,7 @@ const Consumo = () => {
 
               <div className="card">
 
-                <Card.Img src={`https://image.tmdb.org/t/p/w500/${e.backdrop_path}`} alt="imagem" className="card-img-top" />
+                <img src={`https://image.tmdb.org/t/p/w500/${e.backdrop_path}`} alt="imagem" className="card-img-top alt" />
 
                 <Card.Title>
                 <div className="card-body">

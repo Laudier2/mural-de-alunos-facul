@@ -16,9 +16,10 @@ function BasicExample() {
             <Container>
                 <Navbar.Brand href="/" className="titolo3">
                     
-                        <i className="fa-solid fa-house"></i>
+                    <i className="fa-solid fa-house">
+                    <span className="p-2">Serie e Filmes</span>
+                    </i>
                    
-                    Mural Estudantil
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
