@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+    *{
+        margin-top: 3rem;
+    }
     h1 {
         margin: 3rm 0;
     }
@@ -12,7 +15,7 @@ export const Container = styled.div`
     }
     
     img {
-        width: 300px;
+        width: 400px;
         border-radius: 1rem;
     }
 
@@ -43,7 +46,7 @@ export const Container = styled.div`
     span {
         line-height: 130%;
         margin-bottom: 1rem;
-        font-size: 110%;
+        font-size: 180%;
     }
 
     .release-date {

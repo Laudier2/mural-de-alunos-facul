@@ -3,12 +3,13 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import key from "../Key/key"
 import { Container } from './styles'
+import { Card } from "react-bootstrap"
 
 export default function Details() {
 
     const { id } = useParams()
 
-    console.log(id)
+    //console.log(id)
 
     const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${key()}&language=pt-BR&page=1`
 
@@ -29,9 +30,9 @@ export default function Details() {
             setFilmesid(DetailsFilmes)
         
         })()
-    },[id])
+    },[id, url])
 
-    console.log(filmesid)
+   // console.log(filmesid)
 
     return (
     
@@ -42,7 +43,11 @@ export default function Details() {
                     <h1>{filmesid.title}</h1>
                     <span>Sinopse: {filmesid.sinopse}</span>
                     <span className="release-date">Release date: {filmesid.realeaseDate}</span>
-                    <button>Go Back</button>
+                    <button>
+                        <Card.Link className="text-white" href="/">
+                            Go Back
+                        </Card.Link>
+                    </button>
                 </div>
             </div>
         </Container>

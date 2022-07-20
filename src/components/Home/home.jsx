@@ -74,7 +74,7 @@ const Consumo = () => {
     return
   }, [])
 
-  console.log(filmes)
+  //console.log(filmes)
 
   const img = JSON.parse(localStorage.getItem('imagem'))
   const name = JSON.parse(localStorage.getItem('name'))
