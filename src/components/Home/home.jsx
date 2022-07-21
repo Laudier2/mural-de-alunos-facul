@@ -8,37 +8,6 @@ import { Card } from 'react-bootstrap';
 import Contexte from '../../Context/SatateDate'
 import Slind from '../Slind/Slind';
 
-/*const useStyles = makeStyles(() => ({
-
-  icones: {
-    width: 16,
-  },
-  icones_marg: {
-    marginRight: '40%',
-  },
-  title: {
-    fontWeight: 'bold',
-    fontSize: 20,
-    textAlign: 'auto',
-  },
-  title_price: {
-    fontWeight: 'bold',
-    fontSize: 15,
-  },
-  avatar: {
-    backgroundColor: red[500],
-  },
-  img: {
-    width: '100%',
-    height: 230,
-    margin: 'auto',
-  },
-  titoloZize: {
-    fontSize: 70
-  }
-}))
-*/
-
 const Consumo = () => {
 
   const { filmes } = useContext(Contexte)

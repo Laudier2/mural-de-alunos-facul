@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     *{
-        margin-top: 3rem;
+        margin-top: 2rem;
     }
     h1 {
         margin: 3rm 0;

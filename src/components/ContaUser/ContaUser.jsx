@@ -6,19 +6,10 @@ import AppContext from '../../Context/SatateDate'
 import { useNavigate } from 'react-router-dom'
 import { Card, Button, Modal, Form, Table } from 'react-bootstrap'
 import api from '../../api/api'
-import { IconName } from "react-icons/im";
-
-/*const mail2 = [
-  {
-    id_: 1,
-    name: "Laudier",
-    email: "laudier@gmail.com",
-    phone: 75998239680,
-    imagem: "https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?w=2000"
-  }
-]
-
-console.log(mail2)*/
+import { BsPencilSquare } from "react-icons/bs";
+import { BiTrash } from "react-icons/bi";
+import { FaEye } from "react-icons/fa";
+import { FcAcceptDatabase } from "react-icons/fc";
 
 export default function Cadastro() {
   console.clear()
@@ -170,7 +161,7 @@ export default function Cadastro() {
           <thead>
             <tr>
               <th scope="col">
-                <i className="fas fa-coins" />
+                <FcAcceptDatabase className="h3" />
               </th>
               <th scope="col">Usuario</th>
               <th scope="col">E-mail</th>
@@ -182,8 +173,8 @@ export default function Cadastro() {
             <tbody key={r.id} className="container">
               <tr className="btn-outline-secondary text-dark">
                 <th scope="row">
-                  <Button variant="primary" onClick={() => setItem(r)}>
-                    <i className="fas fa-eye" />
+                  <Button onClick={() => setItem(r)}>
+                    <FaEye className="" />
                   </Button>
 
                   <Modal
@@ -217,8 +208,8 @@ export default function Cadastro() {
                 <td>{r.name}</td>
                 <td>{r.email}</td>
                 <td>{r.phone}</td>
-                <td onClick={() => setIdAtual(r._id)} ><i className="fas fa-edit mt-2 p-2 text-info btn btn-light card" /></td>
-                <td onClick={() => Apagausuario(r._id)}><i className="fas fa-trash-alt mt-2 p-2 text-danger btn btn-light card" /></td>
+                <td onClick={() => setIdAtual(r._id)} ><BsPencilSquare className="mz h3 text-primary" /></td>
+                <td onClick={() => Apagausuario(r._id)}><BiTrash className="mz h3 text-danger" /></td>
 
               </tr>
               <Modal show={idAtual} onHide={handleClose}>
@@ -292,7 +283,7 @@ export default function Cadastro() {
           ))}
           
         </Table>
-
+        
       </Card.Body>
     </Card >
   );

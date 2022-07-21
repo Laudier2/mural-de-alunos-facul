@@ -5,6 +5,11 @@
   color: rgb(26, 27, 27);
 }
 
+.mz{
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .Name{
   font-weight: bold;
   margin-left: 90px;
