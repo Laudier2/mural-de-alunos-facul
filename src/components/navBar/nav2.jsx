@@ -12,9 +12,9 @@ function BasicExample() {
     const email = JSON.parse(localStorage.getItem("user"))
 
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" expand="lg"  className="text-white mt-2">
             <Container>
-                <Navbar.Brand href="/" className="titolo3">
+                <Navbar.Brand href="/" className="titolo3 text-white">
                     
                     <i className="fa-solid fa-house">
                     <span className="p-2">Serie e Filmes</span>
@@ -24,18 +24,22 @@ function BasicExample() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/sobre">Sobre</Nav.Link>
+                        <Nav.Link href="/" className="text-white">
+                            <strong>Home</strong></Nav.Link>
+                        <Nav.Link href="/sobre" className="text-white">
+                            <strong>Sobre</strong>
+                        </Nav.Link>
                         <NavDropdown title="Mais" id="basic-nav-dropdown">
                             <NavDropdown.Item href="https://www.youtube.com/channel/UCk8HdZCe8RFMkZqVIQ0mL3g">
 
-                                <i className="fa-brands fa-youtube text-danger"></i>
-                                
-                                Youtube
+                                <i className="fa-brands fa-youtube text-danger ml-2"></i>
+                                <strong className="bg-white">
+                                    Youtube
+                                </strong>
                             </NavDropdown.Item>
                             <NavDropdown.Item href="https://github.com/Laudier2">
                                 
-                                    <i className="fa-brands fa-github-alt"></i>
+                                    <i className="fa-brands fa-github-alt text-white ml-2"></i>
                                 
                                 GitHub
                             </NavDropdown.Item>

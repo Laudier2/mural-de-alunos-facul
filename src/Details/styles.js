@@ -6,6 +6,7 @@ export const Container = styled.div`
     }
     h1 {
         margin: 3rm 0;
+        color: white;
     }
 
     .movie {
@@ -40,6 +41,10 @@ export const Container = styled.div`
         transition: all 0.3s;
     }
 
+    .bg{
+        background: #6654da;
+    }
+
     button:hover {
         background: #5848c2;
     }
@@ -48,6 +53,7 @@ export const Container = styled.div`
         line-height: 130%;
         margin-bottom: 1rem;
         font-size: 180%;
+        color: white;
     }
 
     .release-date {
@@ -59,7 +65,7 @@ export const Container = styled.div`
             margin-top: 1rem;
         }
         h1 {
-            margin: 1rm 0;
+            margin: 0.5rm 0;
         }
     
         .movie {
@@ -84,7 +90,7 @@ export const Container = styled.div`
         span {
             line-height: 130%;
             margin-bottom: 0.1rem;
-            font-size: 84%;
+            font-size: 80%;
         }
         button {
             background: #6654da;

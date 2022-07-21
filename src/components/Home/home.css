@@ -11,6 +11,16 @@
     0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
 }
 
+.titolo1 {
+  color: rgb(252, 247, 247);
+  font-weight: bold;
+  text-shadow: 0 3px 0 rgb(121, 116, 116), 0 1px 0 #c9c9c9, 0 1px 0 #bbb,
+      0 1px 0 #b9b9b9, 0 1px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1),
+      0 0 1px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3),
+      0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25),
+      0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
+}
+
 .ul li {
   text-align: center;
   position: relative;
@@ -47,13 +57,15 @@
 }
 
 .alt{
-  height: 30vh;
+  background: #000;
+  height: 35vh;
 }
 
 .box1{
-    width: 250px;
+    background: #000;
+    width: 380px;
     height: 45vh;
-    margin: 2px 18px;
+    margin: 2px 6px;
     transition: 1s;
     text-align: center;
   }
@@ -74,10 +86,14 @@
   }
 
   .div-lado{
+    background: #000;
     display: inline-block;
     margin-top: 5px;
-    margin-right: 1%;
-    width: 200px;
+    width: 23.8%;
+  }
+
+  .bg {
+    background: #000;
   }
 
   .H5{

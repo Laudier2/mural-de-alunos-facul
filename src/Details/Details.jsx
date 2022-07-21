@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import key from "../Key/key"
 import { Container } from './styles'
-import { Card } from "react-bootstrap"
+import { Link } from 'react-router-dom'
 
 export default function Details() {
 
@@ -44,9 +44,9 @@ export default function Details() {
                     <span>Sinopse: {filmesid.sinopse}</span>
                     <span className="release-date">Release date: {filmesid.realeaseDate}</span>
                     <button>
-                        <Card.Link className="text-white" href="/">
+                        <Link className="text-white bg" to="/">
                             Go Back
-                        </Card.Link>
+                        </Link>
                     </button>
                 </div>
             </div>

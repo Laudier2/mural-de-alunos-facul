@@ -7,6 +7,7 @@ import './home.css'
 import { Card } from 'react-bootstrap';
 import Contexte from '../../Context/SatateDate'
 import Slind from '../Slind/Slind';
+import { Link } from 'react-router-dom'
 
 const Consumo = () => {
 
@@ -73,21 +74,22 @@ const Consumo = () => {
           {filmes.map(e => (
 
 
-            <div key={e.id} className="div-lado ml-2 box1">
+            <div key={e.id} className="div-lado box1">
 
-              <Card.Link href={`/details/${e.id}`} className="card">
+              <Link to={`/details/${e.id}`} className="card">
 
-                <img src={`https://image.tmdb.org/t/p/w500/${e.backdrop_path}`} alt="imagem" className="card-img-top alt" />
+                <img src={`https://image.tmdb.org/t/p/w500/${e.backdrop_path}`} 
+                  alt="imagem" 
+                  className="card-img-top alt" 
+                />
 
-                <Card.Title>
-                <div className="card-body">
-                  <h5 className="card-title">{e.title}</h5>
-                </div>
-                </Card.Title>
-
-              </Card.Link>
-
+              </Link>
+              <div className="card border border-0 mt-3 titolo1 bg">
+                <h5 className="card-title">{e.title}</h5>
+              </div>
+                
             </div>
+            
 
           ))}
           
@@ -95,7 +97,8 @@ const Consumo = () => {
         </Card.Body>
         <div className="mt-5"></div>
       </Card>
-    </div >
+        
+      </div>
   );
 }
 
