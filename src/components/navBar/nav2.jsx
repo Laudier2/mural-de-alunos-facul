@@ -12,7 +12,7 @@ function BasicExample() {
     const email = JSON.parse(localStorage.getItem("user"))
 
     return (
-        <Navbar bg="light" expand="lg"  className="text-white mt-2">
+        <Navbar bg="white" expand="lg"  className="text-white mt-2">
             <Container>
                 <Navbar.Brand href="/" className="titolo3 text-white">
                     
@@ -58,7 +58,7 @@ function BasicExample() {
                             </NavDropdown.Item>
                         </NavDropdown>
                         <Nav>
-                        <div className="">
+                        <div>
                             {email ? <NavDropdown title={email ? "Conta" : ""} id="basic-nav-dropdown">
                             <NavDropdown.Item href="/conta">
                                 
@@ -76,10 +76,10 @@ function BasicExample() {
                     </Nav>
                     <Nav>
                         <Nav.Link href="/form">
-                            {!email ? <span className="nav-link">Cadastre-se</span> : ""}
+                            {!email ? <strong className="nav-link text-white">Cadastre-se</strong> : ""}
                         </Nav.Link>
                         <Nav.Link eventKey={2} href="/login">
-                            {!email ? <span className="nav-link">Login</span> : ""}
+                            {!email ? <strong className="nav-link text-white">Login</strong> : ""}
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

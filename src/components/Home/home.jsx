@@ -68,7 +68,7 @@ const Consumo = () => {
       <Usuario />
       <Slind />
 
-      <Card className="mt-5">
+      <Card className="mt-5 bg-dark">
         <Card.Body className="col-sm-12">
 
           {filmes.map(e => (
@@ -84,7 +84,7 @@ const Consumo = () => {
                 />
 
               </Link>
-              <div className="card border border-0 mt-3 titolo1 bg">
+              <div className="card bg-darck border border-0 mt-3 titolo1 bg">
                 <h5 className="card-title">{e.title}</h5>
               </div>
                 
