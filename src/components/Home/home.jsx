@@ -84,7 +84,7 @@ const Consumo = () => {
                 />
 
               </Link>
-              <div className="card bg-darck border border-0 mt-3 titolo1 bg">
+              <div className="card border border-0 mt-3 titolo1 bg" style={{background: '#000'}}>
                 <h5 className="card-title">{e.title}</h5>
               </div>
                 
