@@ -44,7 +44,7 @@ export default function Details() {
                     <span>Sinopse: {filmesid.sinopse}</span>
                     <span className="release-date">Release date: {filmesid.realeaseDate}</span>
                     <button>
-                        <Link className="text-white bg" to="/">
+                        <Link className="text-white bg" to="/"  style={{textDecoration: 'none' }}>
                             Go Back
                         </Link>
                     </button>

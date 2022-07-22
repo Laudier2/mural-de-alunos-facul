@@ -37,7 +37,9 @@ export const Container = styled.div`
         color: white;
         padding: 0.8rem 2rem;
         margin-top: 1rem;
-        font-size: 100%;
+        font-size: 120%;
+        font-weight: bold;
+        text-decoration: none;
         transition: all 0.3s;
     }
 
