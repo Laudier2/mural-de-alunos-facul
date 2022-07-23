@@ -54,7 +54,6 @@ const Consumo = () => {
       return (
         <div>
           <img src={img} alt="img" className="imgUser" />
-          <strong><p className="nameUser">{name} </p></strong>
         </div>
       )
     } else {

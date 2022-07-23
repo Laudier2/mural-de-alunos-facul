@@ -3,9 +3,11 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import key from "../Key/key"
 import { Container } from './styles'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function Details() {
+
+    const navigate = useNavigate()
 
     const { id } = useParams()
 
@@ -34,6 +36,10 @@ export default function Details() {
 
    // console.log(filmesid)
 
+   const Voltar = () => {
+       return navigate("/")
+   }
+
     return (
     
         <Container>
@@ -43,11 +49,10 @@ export default function Details() {
                     <h1>{filmesid.title}</h1>
                     <span>Sinopse: {filmesid.sinopse}</span>
                     <span className="release-date">Release date: {filmesid.realeaseDate}</span>
-                    <button>
-                        <Link className="text-white bg" to="/"  style={{textDecoration: 'none' }}>
-                            Go Back
-                        </Link>
+                    <button onClick={Voltar}>
+                        Voltar
                     </button>
+                    <br />
                 </div>
             </div>
         </Container>

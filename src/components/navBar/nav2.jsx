@@ -6,6 +6,8 @@ import { BsGithub } from 'react-icons/bs'
 import { TiSocialYoutubeCircular } from 'react-icons/ti'
 import { AiFillLinkedin } from 'react-icons/ai'
 import { FcPortraitMode } from 'react-icons/fc'
+import { BsGear } from 'react-icons/bs'
+import { FaRunning } from 'react-icons/fa'
 
 function BasicExample() {
 
@@ -36,7 +38,7 @@ function BasicExample() {
                         <NavDropdown title="Mais" id="basic-nav-dropdown">
                             <NavDropdown.Item href="https://www.youtube.com/channel/UCk8HdZCe8RFMkZqVIQ0mL3g">
 
-                                <TiSocialYoutubeCircular className="bg-white h3 text-danger" />
+                                <TiSocialYoutubeCircular className="bg-white h5 text-danger" />
                                 Youtube
                                 
                             </NavDropdown.Item>
@@ -65,12 +67,12 @@ function BasicExample() {
                             {email ? <NavDropdown title={email ? "Conta" : ""} id="basic-nav-dropdown">
                             <NavDropdown.Item href="/conta">
                                 
-                                <i className="fa-solid fa-passport"></i>
+                                <BsGear className="m-1 bg-white" />
                                 
                                 Minha Conta
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="/" className="titolo2" onClick={Sair}>
-                                <i className="fa-solid fa-person-running"></i>
+                            <NavDropdown.Item href="/" className="h5" onClick={Sair}>
+                                <FaRunning className="m1 bg-white"/>
                                 Sair
                             </NavDropdown.Item>
                             </NavDropdown> : ""}

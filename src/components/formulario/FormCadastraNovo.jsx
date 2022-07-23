@@ -4,22 +4,16 @@ import api from '../../api/api';
 import { toast } from 'react-toastify';
 import './form.css'
 import { Form } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 /**
  * Essa variável é quem determina os valores iniciais dos input citado no values do useState
  */
-const camposIniciasDeValores = {
-  name: '',
-  imagem: '',
-  email: '',
-  password: '',
-  phone: ''
-};
 
 export default function FormularioCadastro(props) {
   console.clear()
 
-  const [values, setValues] = useState(camposIniciasDeValores);
+  const [values, setValues] = useState([]);
   const history = useNavigate();
 
   const [verpass, setVerpass] = useState(false)
@@ -104,11 +98,11 @@ export default function FormularioCadastro(props) {
   }
 
   return (
-    <div className="conatiner card user-login p-5 mt-5 mrg">
-      <h1 className="titolo2 mb-5">Sistema de Cadastro</h1>
-      <Form onSubmit={onSubmit}>
-        <div className="form-group input-group mt-2">
-          <div className="input-grou-prepend align-self-center">
+    <div className="conatiner card user-login p-5 mt-5 mrg bg-white col-md-5">
+      <h1 className="titolo2 mb-5 bg-white">Sistema de Cadastro</h1>
+      <Form onSubmit={onSubmit} className=" bg-white">
+        <div className="form-group input-group mt-2 bg-white">
+          <div className="input-grou-prepend align-self-center bg-white">
             <div className="input-group-text">
               <i className="fas fa-id-badge p-1 mt-2 text-info" />
             </div>
@@ -122,10 +116,10 @@ export default function FormularioCadastro(props) {
             onChange={onChange}
           />
         </div>
-        <div className="form-group input-group mt-2">
-          <div className="input-grou-prepend align-self-center">
+        <div className="form-group input-group mt-2 bg-white">
+          <div className="input-grou-prepend align-self-center bg-white">
             <div className="input-group-text">
-              <i class="fa-solid fa-image  p-1 mt-2 text-info"></i>
+              <i className="fa-solid fa-image  p-1 mt-2 text-info"></i>
             </div>
           </div>
           <input
@@ -137,8 +131,8 @@ export default function FormularioCadastro(props) {
             onChange={onChange}
           />
         </div>
-        <div className="form-group input-group mt-2">
-          <div className="input-grou-prepend align-self-center">
+        <div className="form-group input-group mt-2 bg-white">
+          <div className="input-grou-prepend align-self-center bg-white">
             <div className="input-group-text">
               <i className="fas fa-envelope  p-1 mt-2 text-info" />
             </div>
@@ -152,10 +146,10 @@ export default function FormularioCadastro(props) {
             onChange={onChange}
           />
         </div>
-        <div className="form-group input-group mt-2">
-          <div className="input-grou-prepend align-self-center">
+        <div className="form-group input-group mt-2 bg-white">
+          <div className="input-grou-prepend align-self-center bg-white">
             <div className="input-group-text">
-              <i class="fa-solid fa-key p-1 mt-2 text-info"></i>
+              <i className="fa-solid fa-key p-1 mt-2 text-info"></i>
             </div>
           </div>
           <input
@@ -168,12 +162,12 @@ export default function FormularioCadastro(props) {
             onChange={onChange}
           />
           <div onClick={MostraPassword}>
-            {verpass ? <i class="fa-solid fa-eye-slash olho3"></i> :
-              <i className="fas fa-eye olho3" />}
+            {verpass ? <i className="fa-solid fa-eye-slash olho3 bg-white"></i> :
+              <i className="fas fa-eye olho3 bg-white" />}
           </div>
         </div>
-        <div className="form-group input-group mt-2">
-          <div className="input-grou-prepend align-self-center">
+        <div className="form-group input-group mt-2 bg-white">
+          <div className="input-grou-prepend align-self-center bg-white">
             <div className="input-group-text">
               <i className="fas fa-phone-alt  p-1 mt-2 text-info" />
             </div>
@@ -192,12 +186,11 @@ export default function FormularioCadastro(props) {
         <button
           type="submit"
           theme="contained-green"
-          className="user-login__submit-button h5 btb p-2 mt-3 shadow-lg mb-5 bg-body rounded-3 cor-btn"
-          rounded
+          className="btn btn-outline-info btn-lg btn-block col-12 mt-2"
         >
           Cadastrar
         </button>
-        <a href="/login">Ja tenho conta</a>
+        <Link to="/login" className="btn btn-outline-secondary mt-5 m-auto" style={{textDecoration: "none", textAlign: 'center'}}>Ja tenho conta</Link>
       </Form>
     </div>
   );

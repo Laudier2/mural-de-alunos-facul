@@ -159,7 +159,7 @@ export default function Cadastro() {
       <Card.Body className="row">
         <Table responsive="sm">
           <thead>
-            <tr>
+            <tr className="text-white">
               <th scope="col">
                 <FcAcceptDatabase className="h3" />
               </th>
@@ -171,10 +171,10 @@ export default function Cadastro() {
 
           {mail.map((r) => (
             <tbody key={r.id} className="container">
-              <tr className="btn-outline-secondary text-dark">
+              <tr className="btn-outline-secondary text-white">
                 <th scope="row">
                   <Button onClick={() => setItem(r)}>
-                    <FaEye className="" />
+                    <FaEye className="bg-primary" />
                   </Button>
 
                   <Modal
@@ -189,15 +189,15 @@ export default function Cadastro() {
                       </Modal.Title>
                     </Modal.Header>
 
-                    <Modal.Body className="col-6 m-auto">
-                      <Card.Img src={item.imagem} className="" />
-                      <Card.Text className="m-1">
-                        <strong>
+                    <Modal.Body className="col-6 m-auto bg-white rounded">
+                      <Card.Img src={item.imagem} className="bg-white rounded" />
+                      <Card.Text className="m-1 bg-white">
+                        <strong className="bg-white">
                           Email:{" "}
                         </strong>
                         {item.email}
                         <br />
-                        <strong>
+                        <strong className="bg-white">
                           Phone:{" "}
                         </strong>
                         {item.phone}
@@ -208,13 +208,13 @@ export default function Cadastro() {
                 <td>{r.name}</td>
                 <td>{r.email}</td>
                 <td>{r.phone}</td>
-                <td onClick={() => setIdAtual(r._id)} ><BsPencilSquare className="mz h3 text-primary" /></td>
+                <td onClick={() => setIdAtual(r._id)} ><BsPencilSquare className="mz h3 text-white" /></td>
                 <td onClick={() => Apagausuario(r._id)}><BiTrash className="mz h3 text-danger" /></td>
 
               </tr>
               <Modal show={idAtual} onHide={handleClose}>
                 <Modal.Header closeButton>
-                  <Modal.Title className="titolo m-auto">Sistema de Atualização de dados</Modal.Title>
+                  <Modal.Title className="titolo1 m-auto">Sistema de Atualização de dados</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   <Form>
@@ -247,8 +247,8 @@ export default function Cadastro() {
                       />
                       <Form.Label>Password</Form.Label>
                       <div onClick={MostraPassword}>
-                        {!!verpass ? <i class="fa-solid fa-eye-slash olho"></i> :
-                          <i className="fas fa-eye olho" />}
+                        {!!verpass ? <i class="fa-solid fa-eye-slash olho bg-white"></i> :
+                          <i className="fas fa-eye olho bg-white" />}
                       </div>
                       <Form.Control
                         type={verpass ? "text" : "password"}
@@ -267,10 +267,10 @@ export default function Cadastro() {
                         onChange={onChange}
                       />
                       <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
+                        <Button onClick={handleClose} className="btn btn-secondary col-5 m-auto">
                           Fecha
                         </Button>
-                        <Button variant="primary" onClick={onSubmit}>
+                        <Button onClick={onSubmit} className="btn btn-primary col-5 m-auto">
                           Salvar
                         </Button>
                       </Modal.Footer>
