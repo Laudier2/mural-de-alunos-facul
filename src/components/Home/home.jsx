@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import Loading from '../loading/Loading';
 import axios from 'axios'
 import './home.css'
 import Contexte from '../../Context/SatateDate'
@@ -79,16 +80,24 @@ const Consumo = () => {
     setScollx(x)
   }
 
-  console.log(filmes)
+  //console.log(filmes)
 
   //{`https://image.tmdb.org/t/p/w500/${e.backdrop_path}`} 
   return (
-    <div clasName="movieRow">
+    <div className="movieRow">
       <div className="movieRow--left">
-        <MdNavigateBefore style={{fontSize: 50, color: "white"}} onClick={handleLeftArrow} />
+        <MdNavigateBefore style={{
+          fontSize: 50, 
+          color: "#000", 
+          background: "#FFF"           
+        }} onClick={handleLeftArrow} className="imgBoder" />
       </div>
       <div className="movieRow--right">
-        <MdNavigateNext style={{fontSize: 50, color: "white"}} onClick={handleRightArrow} />
+        <MdNavigateNext style={{
+          fontSize: 50, 
+          color: "#000", 
+          background: "#FFF" 
+        }} onClick={handleRightArrow} className="imgBoder" />
       </div>
       
       <Usuario />
@@ -100,12 +109,11 @@ const Consumo = () => {
           }}>
         {filmes.length > 0 && filmes.map(e => (
           <div key={e.id} className="movieRow--item">
-            <img src={`https://image.tmdb.org/t/p/w500/${e.backdrop_path}`} alt="img" clasName="" />
-            <h3 className="text-white">{e.adult}</h3>
+            <img src={`https://image.tmdb.org/t/p/w500/${e.backdrop_path}`} alt="img" />
           </div>
         ))}
         </div>
-
+        {!load && <Loading />}
       </div>   
   </div>
   );
