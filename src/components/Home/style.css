@@ -155,3 +155,35 @@ body {
     opacity: 1;
 }
 
+@media screen and (max-width: 780px) {
+  .movieRow--left {
+    position: absolute;
+    width: 50px;
+    height: 170px;
+    background-color:rgba(255, 255, 255, 0);
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 1;
+    margin-left: 0%;
+}
+
+.movieRow--right {
+  position: absolute;
+  width: 50px;
+  height: 170px;
+  background-color:rgba(255, 255, 255, 0);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 1;
+  margin-right: 0%;
+}
+}
+
