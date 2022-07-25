@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
-//import { makeStyles } from '@material-ui/core/styles';
-//import { red } from '@material-ui/core/colors';
-import Loading from '../loading/Loading';
 import axios from 'axios'
 import './home.css'
-import { Card } from 'react-bootstrap';
 import Contexte from '../../Context/SatateDate'
-import Slind from '../Slind/Slind';
-import { Link } from 'react-router-dom'
+import './style.css'
+import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md'
+
+
+import 'swiper/package.json'
 
 const Consumo = () => {
 
@@ -15,6 +14,7 @@ const Consumo = () => {
 
   const [chec, setChec] = useState([])
   const [load, setLoad] = useState(false)
+  const [ scollx, setScollx ] = useState(-400)
 
   useEffect(() => {
     setTimeout(() => {
@@ -61,43 +61,53 @@ const Consumo = () => {
     }
   }
 
+  const handleLeftArrow = () => {
+    let x = scollx - Math.round(window.innerWidth / 2);
+    let listw = filmes.length * 150;
+    if((window.innerWidth - listw) > x) {
+      x = (window.innerWidth - listw) - 60;
+    }
+    setScollx(x)
+  }
+
+  const handleRightArrow = () => {
+    
+    let x = scollx + Math.round(window.innerWidth / 2);
+    if(x > 0) {
+      x = 0;
+    }
+    setScollx(x)
+  }
+
+  console.log(filmes)
+
+  //{`https://image.tmdb.org/t/p/w500/${e.backdrop_path}`} 
   return (
-    <div>
+    <div clasName="movieRow">
+      <div className="movieRow--left">
+        <MdNavigateBefore style={{fontSize: 50, color: "white"}} onClick={handleLeftArrow} />
+      </div>
+      <div className="movieRow--right">
+        <MdNavigateNext style={{fontSize: 50, color: "white"}} onClick={handleRightArrow} />
+      </div>
       
       <Usuario />
-      <Slind />
+      
+      <div className="movieRow--listarea" >
+        <div className="movieRow--list" style={{
+            marginLeft: scollx,
+            width: filmes.length * 150
+          }}>
+        {filmes.length > 0 && filmes.map(e => (
+          <div key={e.id} className="movieRow--item">
+            <img src={`https://image.tmdb.org/t/p/w500/${e.backdrop_path}`} alt="img" clasName="" />
+            <h3 className="text-white">{e.adult}</h3>
+          </div>
+        ))}
+        </div>
 
-      <Card className="mt-5 bg-dark">
-        <Card.Body className="col-sm-12">
-
-          {filmes.map(e => (
-
-
-            <div key={e.id} className="div-lado box1">
-
-              <Link to={`/details/${e.id}`} className="card">
-
-                <img src={`https://image.tmdb.org/t/p/w500/${e.backdrop_path}`} 
-                  alt="imagem" 
-                  className="card-img-top alt" 
-                />
-
-              </Link>
-              <div className="card border border-0 mt-3 titolo1 bg" style={{background: '#000'}}>
-                <h5 className="card-title">{e.title}</h5>
-              </div>
-                
-            </div>
-            
-
-          ))}
-          
-          {!load && <Loading />}
-        </Card.Body>
-        <div className="mt-5"></div>
-      </Card>
-        
-      </div>
+      </div>   
+  </div>
   );
 }
 
