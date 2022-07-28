@@ -9,7 +9,7 @@ import Contexte from '../../Context/SatateDate'
 import Slind from '../Slind/Slind';
 import { Link } from 'react-router-dom'
 
-const Consumo = () => {
+const Consumo2 = () => {
 
   const { filmes } = useContext(Contexte)
 
@@ -101,4 +101,4 @@ const Consumo = () => {
   );
 }
 
-export default Consumo;
+export default Consumo2;

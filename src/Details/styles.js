@@ -62,6 +62,21 @@ export const Container = styled.div`
         opacity: 0.5;
     }
 
+    .btnLink {
+        background: #6654da;
+        boder: none;
+        cursor: pointer;
+        border-radius: 1rem;
+        color: white;
+        padding: 0.8rem 2rem;
+        margin-top: 1rem;
+        font-size: 120%;
+        font-weight: bold;
+        text-decoration: none;
+        transition: all 0.3s;
+        text-align: center;
+    }
+
     @media screen and (max-width: 780px) {
         *{
             margin-top: 1rem;
@@ -95,7 +110,26 @@ export const Container = styled.div`
             font-size: 80%;
         }
         button {
-            background: #6654da;
+            .btnLink {
+                background: #6654da;
+                boder: none;
+                cursor: pointer;
+                border-radius: 1rem;
+                color: white;
+                padding: 0.4rem 2rem;
+                margin-top: 1rem;
+                font-size: 80%;
+                transition: all 0.3s;
+            } border-radius: 1rem;
+            color: white;
+            padding: 0.4rem 2rem;
+            margin-top: 1rem;
+            font-size: 80%;
+            transition: all 0.3s;
+        }
+
+        .btnLink {
+            background: rgb(15, 207, 233);
             boder: none;
             cursor: pointer;
             border-radius: 1rem;
@@ -104,6 +138,7 @@ export const Container = styled.div`
             margin-top: 1rem;
             font-size: 80%;
             transition: all 0.3s;
+            text-align: center;
         }
     }
 `
