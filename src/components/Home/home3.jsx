@@ -118,9 +118,16 @@ const Consumo = () => {
             }}>
             {filmes2.length > 0 && filmes2.map(e => (
             <Link to={`/details/${e.id}`}>
-                <div key={e.id} className="movieRow--item">
-                    <img src={`https://image.tmdb.org/t/p/w500/${e.backdrop_path}`} alt="img" />
+            <div key={e.id} className="movieRow--item">
+              <div className="card-group">
+                <div className="card bg-dark">
+                  <img className="card-img-top" src={`https://image.tmdb.org/t/p/w500/${e.backdrop_path}`} alt="Card image cap" />
+                  <div className="card-body">
+                    <strong className="card-title text-white">{e.title}</strong>
+                  </div>
                 </div>
+              </div>
+            </div>
             </Link>
             ))}
             </div>
