@@ -121,7 +121,7 @@ const Consumo = () => {
             <div key={e.id} className="movieRow--item">
               <div className="card-group">
                 <div className="card bg-dark">
-                  <img className="card-img-top" src={`https://image.tmdb.org/t/p/w500/${e.backdrop_path}`} alt="Card image cap" />
+                  <img className="card-img-top" src={`https://image.tmdb.org/t/p/w500/${e.backdrop_path}`} alt="Lista de fotos" />
                   <div className="card-body">
                     <strong className="card-title text-white">{e.title}</strong>
                   </div>
