@@ -1,9 +1,10 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import key from "../Key/key"
 import { Container } from './styles'
 import { useNavigate } from 'react-router-dom'
+import Nav from 'react-bootstrap/Nav';
 
 export default function Details() {
 
@@ -49,7 +50,7 @@ export default function Details() {
                     <h1>{filmesid.title}</h1>
                     <span>Sinopse: {filmesid.sinopse}</span>
                     <span className="release-date">Release date: {filmesid.realeaseDate}</span>
-                    <Link to="https://drive.google.com/file/d/1qXOz_HtyCZmPBFFgq6_Br9-KjLTFfe4B/view?usp=sharing" className="btnLink">Assistir</Link>
+                    <Nav.Link href="https://drive.google.com/file/d/1qXOz_HtyCZmPBFFgq6_Br9-KjLTFfe4B/view?usp=sharing" className="btnLink">Assistir</Nav.Link>
                 
                     <button onClick={Voltar}>
                         Voltar
